@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCommerce - Sustainable Solutions for Online Shopping</title>
+    <meta name="title" content="EcoCommerce - Sustainable Solutions for Online Shopping">
+    <link rel="icon" href="images/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Carter+One&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preload" as="image" href="images/hero-banner.jpg">
+</head>
+
+<body id="top">
+    <header>
+        <a href="#" class="logo">
+            <img src="images/logooo.png" alt="Logo" class="logo">
+        </a>
+        <ul class="navlist">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#category">Collections</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="#" id="about">About Us</a></li>
+            <li><a href="#" id="close-menu"><i class="fas fa-times"></i> Close</a></li>
+        </ul>
+        <div class="nav-right">
+            <a href="#"><i class="ri-search-line"></i></a>
+            <a href="#"><i class="ri-shopping-cart-2-line"></i></a>
+            <a href="#"><i class="ri-user-line"></i></a>
+            <div class="bx bx-menu" id="menu-icon"><i class="fas fa-bars"></i></div>
+        </div>
+        <div class="popup-view" id="about-view">
+            <div class="about-card">
+                <a href="#" class="close-btn"><i class="ri-close-circle-fill"></i></a>
+                <div class="about-img">
+                    <img src="images/about.png">
+                </div>
+                <div class="about-content">
+                    <div>
+                        <h3 class="h3">About Us<br><span>EcoCommerce</span></h3>
+                        <p>Welcome to EcoCommerce, where sustainability meets convenience in the world of online shopping. Founded as an initiative as part of our course requirements in Web Technologies, our mission is to provide a platform that empowers consumers to make eco-conscious choices without compromising on quality or convenience.</p>
+                        <p>As champions of sustainability, we're driven by the belief that every purchase should be a positive force for our planet. That's why we've curated a collection of eco-friendly products, sourced responsibly and crafted with care.</p>
+                        <p>Join us in shaping a greener future, one mindful purchase at a time!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <article>
+            <section class="section hero has-bg-image" id="home" aria-label="home" style="background-image: url('images/hero-banner\ \(1\).png')">
+                <div class="hero-container">
+                    <a href="#shop" class="hero-btn">Shop Now</a>
+                </div>
+            </section>
+            <section class="section category" id="category">
+                <div class="container">
+                    <h2 class="h2 section-title"><span class="span">Top</span> Categories</h2>
+                    <ul class="has-scrollbar">
+                        <li class="scrollbar-item">
+                            <div class="category-card">
+                                <figure class="card-banner img-holder" style="--width: 330; --height: 300;">
+                                    <img src="images/category-1.png" width="330" height="300" alt="Kitchen Tools" class="img-cover">
+                                </figure>
+                                <h3 class="h3">
+                                    <a href="#" class="card-title">EcoHome Essentials</a>
+                                </h3>
+                            </div>
+                        </li>
+                        <li class="scrollbar-item">
+                            <div class="category-card">
+                                <figure class="card-banner img-holder" style="--width: 330; --height: 300;">
+                                    <img src="images/category-2.png" width="330" height="300" alt="Tote Bag" class="img-cover">
+                                </figure>
+                                <h3 class="h3">
+                                    <a href="#" class="card-title">EcoFashion Finds</a>
+                                </h3>
+                            </div>
+                        </li>
+                        <li class="scrollbar-item">
+                            <div class="category-card">
+                                <figure class="card-banner img-holder" style="--width: 330; --height: 300;">
+                                    <img src="images/category-3.png" width="330" height="300" alt="Beauty Products" class="img-cover">
+                                </figure>
+                                <h3 class="h3">
+                                    <a href="#" class="card-title">EcoBeauty Basics</a>
+                                </h3>
+                            </div>
+                        </li>
+                        <li class="scrollbar-item">
+                            <div class="category-card">
+                                <figure class="card-banner img-holder" style="--width: 330; --height: 300;">
+                                    <img src="images/category-4.png" width="330" height="300" alt="Gourmet Goods" class="img-cover">
+                                </figure>
+                                <h3 class="h3">
+                                    <a href="#" class="card-title">EcoGourmet Goods</a>
+                                </h3>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="section blogs" id="blogs" aria-label="blogs">
+                <div class="container">
+                    <ul class="grid-list">
+                        <li>
+                            <div class="blog-card has-bg-image img-holder" style="background-image: url('images/blog-banner-1.png'); --width: 540; --height: 374;">
+                                <p class="card-subtitle">PRACTICAL ADVICE FOR GREENER LIVING.</p>
+                                <h3 class="h3 card-title">Eco-Friendly Tips</h3>
+                                <a href="#" class="btn">Read More</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="blog-card has-bg-image img-holder" style="background-image: url('images/blog-banner-2.png'); --width: 540; --height: 374;">
+                                <p class="card-subtitle">ECO-FRIENDLY SOLUTIONS FOR EVERYDAY LIFE.</p>
+                                <h3 class="h3 card-title">Sustainable Living</h3>
+                                <a href="#" class="btn">Read More</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="blog-card has-bg-image img-holder" style="background-image: url('images/blog-banner-3.png'); --width: 540; --height: 374;">
+                                <p class="card-subtitle">DISCOVER THE LATEST IN ECO TRENDS.</p>
+                                <h3 class="h3 card-title">Green Innovations</h3>
+                                <a href="#" class="btn">Read More</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="section product" id="shop" aria-label="product">
+                <div class="container">
+                    <h2 class="h2 section-title">
+                        <span class="span">Best</span> Sellers
+                    </h2>
+                    <ul class="grid-list">
+                        <li>
+                            <div class="product-card">
+                                <div class="card-banner img-holder" style="--width: 360; --height: 360;">
+                                    <img src="images/products/1.png" width="360" height="360" alt="Herbal Gugo Shampoo 250ml" class="img-cover default">
+                                    <img src="images/products/2.png" width="360" height="360" alt="Herbal Gugo Shampoo 250ml" class="img-cover hover">
+                                    <button class="card-action-btn" aria-label="Add to Cart" title="Add to Cart">
+                                        <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="card-content">
+                                    <div class="wrapper">
+                                        <div class="rating-wrapper">
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star-half" aria-hidden="true"></ion-icon>
+                                        </div>
+                                        <span class="span">(89)</span>
+                                    </div>
+                                    <h3 class="h3">
+                                        <a href="#" class="card-title popup-btn">EchoStore Herbal Gugo Shampoo 250ml</a>
+                                    </h3>
+                                    <data class="card-price" value="210">₱210.00</data>
+                                </div>
+                            </div>
+                            <div class="popup-view">
+                                <div class="popup-card">
+                                    <a href="#" class="close-btn"><i class="ri-close-circle-fill"></i></a>
+                                    <div class="product-img">
+                                        <img src="images/products/1.png">
+                                    </div>
+                                    <div class="product-info">
+                                        <div>
+                                            <h3 class="h3">EchoStore Herbal Gugo Shampoo 250ml<br><span>EcoBeauty Basics</span></h3>
+                                            <p>Revitalize your hair naturally with our Gugo bark-based formula. Trusted by both men and women for its proven effectiveness against premature baldness, alopecia, and other hair concerns. Pair it with our conditioner and hair lotion for a complete recovery treatment.</p>
+                                            <span class="price">₱210.00</span>
+                                            <a href="#" class="add-cart-btn">Add to Cart</a>
+                                            <a href="#" class="add-to-wishlist">Add to Wishlist</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product-card">
+                                <div class="card-banner img-holder" style="--width: 360; --height: 360;">
+                                    <img src="images/products/3.png" width="360" height="360" alt="Virgin Coconut Oil" class="img-cover default">
+                                    <img src="images/products/4.png" width="360" height="360" alt="Virgin Coconut Oil" class="img-cover hover">
+                                    <button class="card-action-btn" aria-label="Add to Cart" title="Add to Cart">
+                                        <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="card-content">
+                                    <div class="wrapper">
+                                        <div class="rating-wrapper">
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                        </div>
+                                        <span class="span">(24)</span>
+                                    </div>
+                                    <h3 class="h3">
+                                        <a href="#" class="card-title popup-btn">EchoStore Virgin Coconut Oil 250ml</a>
+                                    </h3>
+                                    <data class="card-price" value="290">₱290.00</data>
+                                </div>
+                            </div>
+                            <div class="popup-view">
+                                <div class="popup-card">
+                                    <a href="#" class="close-btn"><i class="ri-close-circle-fill"></i></a>
+                                    <div class="product-img">
+                                        <img src="images/products/3.png">
+                                    </div>
+                                    <div class="product-info">
+                                        <div>
+                                            <h3 class="h3">EchoStore Virgin Coconut Oil 250ml<br><span>EcoBeauty Basics</span></h3>
+                                            <p>Rejuvenate your well-being with our 100% Virgin Coconut Oil, harvested from the sun-kissed groves of the Philippines. Packed with essential nutrients, this natural elixir empowers your vitality, bolsters immunity, and aids in weight management. Embrace its electrolyte-rich goodness, promoting skin radiance, heart health, and digestive harmony.</p>
+                                            <span class="price">₱290.00</span>
+                                            <a href="#" class="add-cart-btn">Add to Cart</a>
+                                            <a href="#" class="add-to-wishlist">Add to Wishlist</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product-card">
+                                <div class="card-banner img-holder" style="--width: 360; --height: 360;">
+                                    <img src="images/products/5.png" width="360" height="360" alt="Activated Charcoal Soap" class="img-cover default">
+                                    <img src="images/products/6.png" width="360" height="360" alt="Activated Charcoal Soap" class="img-cover hover">
+                                    <button class="card-action-btn" aria-label="Add to Cart" title="Add to Cart">
+                                        <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="card-content">
+                                    <div class="wrapper">
+                                        <div class="rating-wrapper">
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                                        </div>
+                                        <span class="span">(30)</span>
+                                    </div>
+                                    <h3 class="h3">
+                                        <a href="#" class="card-title popup-btn">Arka Naturals Activated Charcoal Soap | Scented 140g</a>
+                                    </h3>
+                                    <data class="card-price" value="299">₱299.00</data>
+                                </div>
+                            </div>
+                            <div class="popup-view">
+                                <div class="popup-card">
+                                    <a href="#" class="close-btn"><i class="ri-close-circle-fill"></i></a>
+                                    <div class="product-img">
+                                        <img src="images/products/5.png">
+                                    </div>
+                                    <div class="product-info">
+                                        <div>
+                                            <h3 class="h3">Arka Naturals Activated Charcoal Soap | Scented 140g<br><span>EcoBeauty Basics</span></h3>
+                                            <p>
+                                                Elevate your skincare routine with this soap. This 140g bar is a blend of purifying activated charcoal and a refreshing mix of floral and herb notes. Vegan, cruelty-free, and free of SLS and parabens, it deeply cleanses, controls oil, and fights acne, leaving your skin flawless and pores tightened.
+                                            </p>
+                                            <span class="price">₱299.00</span>
+                                            <a href="#" class="add-cart-btn">Add to Cart</a>
+                                            <a href="#" class="add-to-wishlist">Add to Wishlist</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product-card">
+                                <div class="card-banner img-holder" style="--width: 360; --height: 360;">
+                                    <img src="images/products/7.png" width="360" height="360" alt="Lavender Soap" class="img-cover default">
+                                    <img src="images/products/8.png" width="360" height="360" alt="Lavender Soap" class="img-cover hover">
+                                    <button class="card-action-btn" aria-label="Add to Cart" title="Add to Cart">
+                                        <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="card-content">
+                                    <div class="wrapper">
+                                        <div class="rating-wrapper">
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star-half" aria-hidden="true"></ion-icon>
+                                        </div>
+                                        <span class="span">(91)</span>
+                                    </div>
+                                    <h3 class="h3">
+                                        <a href="#" class="card-title popup-btn">Arka Naturals Lavender Soap | Scented 140g</a>
+                                    </h3>
+                                    <data class="card-price" value="299">₱299.00</data>
+                                </div>
+                            </div>
+                            <div class="popup-view">
+                                <div class="popup-card">
+                                    <a href="#" class="close-btn"><i class="ri-close-circle-fill"></i></a>
+                                    <div class="product-img">
+                                        <img src="images/products/7.png">
+                                    </div>
+                                    <div class="product-info">
+                                        <div>
+                                            <h3 class="h3">Arka Naturals Lavender Soap | Scented 140g<br><span>EcoBeauty Basics</span></h3>
+                                            <p>Indulge in the calming essence of lavender with this soap. Formulated with anti-aging, anti-inflammatory, and antibacterial properties, this bar offers a soothing floral scent akin to lavender fields. Lavender's natural abilities calm and reduce inflammation, making it perfect for soothing skin irritations and insect bites.</p>
+                                            <span class="price">₱299.00</span>
+                                            <a href="#" class="add-cart-btn">Add to Cart</a>
+                                            <a href="#" class="add-to-wishlist">Add to Wishlist</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product-card">
+                                <div class="card-banner img-holder" style="--width: 360; --height: 360;">
+                                    <img src="images/products/9.png" width="360" height="360" alt="Gourmet Chocolate" class="img-cover default">
+                                    <img src="images/products/10.png" width="360" height="360" alt="Gourmet Chocolate" class="img-cover hover">
+                                    <button class="card-action-btn" aria-label="Add to Cart" title="Add to Cart">
+                                        <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="card-content">
+                                    <div class="wrapper">
+                                        <div class="rating-wrapper">
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                        </div>
+                                        <span class="span">(10)</span>
+                                    </div>
+                                    <h3 class="h3">
+                                        <a href="#" class="card-title popup-btn">Figtree Farms Tablea de Cacao Gourmet Chocolate 250g</a>
+                                    </h3>
+                                    <data class="card-price" value="169">₱169.00</data>
+                                </div>
+                            </div>
+                            <div class="popup-view">
+                                <div class="popup-card">
+                                    <a href="#" class="close-btn"><i class="ri-close-circle-fill"></i></a>
+                                    <div class="product-img">
+                                        <img src="images/products/9.png">
+                                    </div>
+                                    <div class="product-info">
+                                        <div>
+                                            <h3 class="h3">Figtree Farms Tablea de Cacao Gourmet Chocolate 250g<br><span>EcoGourmet Goods</span></h3>
+                                            <p>Indulge in the rich, chocolatey goodness of our 100% pure cacao tablea rolls! Made from locally grown and harvested cacao beans, each slice is a burst of authentic roasted cacao flavor. Perfect for champorado or hot chocolate, and sweetened with organic muscovado.</p>
+                                            <span class="price">₱169.00</span>
+                                            <a href="#" class="add-cart-btn">Add to Cart</a>
+                                            <a href="#" class="add-to-wishlist">Add to Wishlist</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product-card">
+                                <div class="card-banner img-holder" style="--width: 360; --height: 360;">
+                                    <img src="images/products/11.png" width="360" height="360" alt="Pandan Tote Bag in Blue" class="img-cover default">
+                                    <img src="images/products/12.png" width="360" height="360" alt="Pandan Tote Bag in Blue" class="img-cover hover">
+                                    <button class="card-action-btn" aria-label="Add to Cart" title="Add to Cart">
+                                        <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="card-content">
+                                    <div class="wrapper">
+                                        <div class="rating-wrapper">
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                        </div>
+                                        <span class="span">(58)</span>
+                                    </div>
+                                    <h3 class="h3">
+                                        <a href="#" class="card-title popup-btn">Kultura Pandan Tote Bag in Blue with Zipper</a>
+                                    </h3>
+                                    <data class="card-price" value="899">₱899.00</data>
+                                </div>
+                            </div>
+                            <div class="popup-view">
+                                <div class="popup-card">
+                                    <a href="#" class="close-btn"><i class="ri-close-circle-fill"></i></a>
+                                    <div class="product-img">
+                                        <img src="images/products/11.png">
+                                    </div>
+                                    <div class="product-info">
+                                        <div>
+                                            <h3 class="h3">Kultura Pandan Tote Bag in Blue with Zipper<br><span>EcoFashion Finds</span></h3>
+                                            <p>Elevate your style while championing local craftsmanship with our Pandan Tikog Tote Bag. Handwoven by Filipino artisans, this bag boasts a unique blend of tradition and modernity. Crafted from sturdy Pandan fibers, it features braided handles for added durability and a zip closure for security.</p>
+                                            <span class="price">₱899.00</span>
+                                            <a href="#" class="add-cart-btn">Add to Cart</a>
+                                            <a href="#" class="add-to-wishlist">Add to Wishlist</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product-card">
+                                <div class="card-banner img-holder" style="--width: 360; --height: 360;">
+                                    <img src="images/products/13.png" width="360" height="360" alt="Tote Bag with Red Stripes" class="img-cover default">
+                                    <img src="images/products/14.png" width="360" height="360" alt="Tote Bag with Red Stripes" class="img-cover hover">
+                                    <button class="card-action-btn" aria-label="Add to Cart" title="Add to Cart">
+                                        <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="card-content">
+                                    <div class="wrapper">
+                                        <div class="rating-wrapper">
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star-half" aria-hidden="true"></ion-icon>
+                                        </div>
+                                        <span class="span">(69)</span>
+                                    </div>
+                                    <h3 class="h3">
+                                        <a href="#" class="card-title popup-btn">Kultura Tikog Handwoven Tote Bag with Red Stripes</a>
+                                    </h3>
+                                    <data class="card-price" value="899">₱899.00</data>
+                                </div>
+                            </div>
+                            <div class="popup-view">
+                                <div class="popup-card">
+                                    <a href="#" class="close-btn"><i class="ri-close-circle-fill"></i></a>
+                                    <div class="product-img">
+                                        <img src="images/products/13.png">
+                                    </div>
+                                    <div class="product-info">
+                                        <div>
+                                            <h3 class="h3">Kultura Tikog Handwoven Tote Bag with Red Stripes<br><span>EcoFashion Finds</span></h3>
+                                            <p>Handwoven by skilled Filipino artisans, this bag is meticulously crafted from resilient Tikog fibers, offering both durability and style. Its braided handles ensure comfortable carrying, while the zip closure provides security for your belongings.</p>
+                                            <span class="price">₱899.00</span>
+                                            <a href="#" class="add-cart-btn">Add to Cart</a>
+                                            <a href="#" class="add-to-wishlist">Add to Wishlist</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product-card">
+                                <div class="card-banner img-holder" style="--width: 360; --height: 360;">
+                                    <img src="images/products/15.png" width="360" height="360" alt="Bamboo Notebook with Pen" class="img-cover default">
+                                    <img src="images/products/16.png" width="360" height="360" alt="Bamboo Notebook with Pen" class="img-cover hover">
+                                    <button class="card-action-btn" aria-label="Add to Cart" title="Add to Cart">
+                                        <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="card-content">
+                                    <div class="wrapper">
+                                        <div class="rating-wrapper">
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star-half" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                                        </div>
+                                        <span class="span">(33)</span>
+                                    </div>
+                                    <h3 class="h3">
+                                        <a href="#" class="card-title popup-btn">Lakbawayan Bamboo Notebook with Bamboo Pen</a>
+                                    </h3>
+                                    <data class="card-price" value="139">₱139.00</data>
+                                </div>
+                            </div>
+                            <div class="popup-view">
+                                <div class="popup-card">
+                                    <a href="#" class="close-btn"><i class="ri-close-circle-fill"></i></a>
+                                    <div class="product-img">
+                                        <img src="images/products/15.png">
+                                    </div>
+                                    <div class="product-info">
+                                        <div>
+                                            <h3 class="h3">Lakbawayan Bamboo Notebook with Bamboo Pen<br><span>EcoStationery Collection</span></h3>
+                                            <p>Jot down your adventures in style while making a positive impact on the environment with our Lakbawayan Bamboo Notebook. Crafted with a bamboo cover and 70 pages of recycled paper, this notebook combines sustainability with functionality.</p>
+                                            <span class="price">₱139.00</span>
+                                            <a href="#" class="add-cart-btn">Add to Cart</a>
+                                            <a href="#" class="add-to-wishlist">Add to Wishlist</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product-card">
+                                <div class="card-banner img-holder" style="--width: 360; --height: 360;">
+                                    <img src="images/products/17.png" width="360" height="360" alt="Kapecup" class="img-cover default">
+                                    <img src="images/products/18.png" width="360" height="360" alt="Kapecup" class="img-cover hover">
+                                    <button class="card-action-btn" aria-label="Add to Cart" title="Add to Cart">
+                                        <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="card-content">
+                                    <div class="wrapper">
+                                        <div class="rating-wrapper">
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star-half" aria-hidden="true"></ion-icon>
+                                        </div>
+                                        <span class="span">(75)</span>
+                                    </div>
+                                    <h3 class="h3">
+                                        <a href="#" class="card-title popup-btn">Lakbawayan™ Kapecup (400mL) [Coffee Tumbler / Cup]</a>
+                                    </h3>
+                                    <data class="card-price" value="199">₱199.00</data>
+                                </div>
+                            </div>
+                            <div class="popup-view">
+                                <div class="popup-card">
+                                    <a href="#" class="close-btn"><i class="ri-close-circle-fill"></i></a>
+                                    <div class="product-img">
+                                        <img src="images/products/17.png">
+                                    </div>
+                                    <div class="product-info">
+                                        <div>
+                                            <h3 class="h3">Lakbawayan™ Kapecup (400mL) [Coffee Tumbler / Cup]<br><span>EcoHome Essentials</span></h3>
+                                            <p>Meet the Lakbawayan™ Kapecup, coffee tumbler made especially for your coffee energizer, whether it for work or plain travel adventures. Made from sustainably sourced bamboo and best made stainless steel that can keep your morning a little bit fun and eco-friendly.</p>
+                                            <span class="price">₱199.00</span>
+                                            <a href="#" class="add-cart-btn">Add to Cart</a>
+                                            <a href="#" class="add-to-wishlist">Add to Wishlist</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product-card">
+                                <div class="card-banner img-holder" style="--width: 360; --height: 360;">
+                                    <img src="images/products/23.png" width="360" height="360" alt="Abaca Face Mask" class="img-cover default">
+                                    <img src="images/products/24.png" width="360" height="360" alt="Abaca Face Mask" class="img-cover hover">
+                                    <button class="card-action-btn" aria-label="Add to Cart" title="Add to Cart">
+                                        <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="card-content">
+                                    <div class="wrapper">
+                                        <div class="rating-wrapper">
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                                        </div>
+                                        <span class="span">(92)</span>
+                                    </div>
+                                    <h3 class="h3">
+                                        <a href="#" class="card-title popup-btn">Figtree Farms Biodegradable Abaca Face Mask</a>
+                                    </h3>
+                                    <data class="card-price" value="149">₱149.00</data>
+                                </div>
+                            </div>
+                            <div class="popup-view">
+                                <div class="popup-card">
+                                    <a href="#" class="close-btn"><i class="ri-close-circle-fill"></i></a>
+                                    <div class="product-img">
+                                        <img src="images/products/23.png">
+                                    </div>
+                                    <div class="product-info">
+                                        <div>
+                                            <h3 class="h3">Figtree Farms Biodegradable Abaca Face Mask<br><span>EcoFashion Finds</span></h3>
+                                            <p>Figtree Farms' plantable, biodegradable, reusable abaca face masks are an eco-friendly take on the essential facial covering and help to solve the problem of disposable masks by highlighting how they can be made more sustainable.</p>
+                                            <span class="price">₱149.00</span>
+                                            <a href="#" class="add-cart-btn">Add to Cart</a>
+                                            <a href="#" class="add-to-wishlist">Add to Wishlist</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="section service" aria-label="service">
+                <div class="container">
+                    <img src="images/service-image.png" width="122" height="136" alt="" class="img">
+                    <h2 class="h2 section-title">
+                        <span class="span">Everything You Need for a Greener,</span> Sustainable Lifestyle.
+                    </h2>
+                    <ul class="grid-list">
+                        <li>
+                            <div class="service-card">
+                                <figure class="card-icon">
+                                    <img src="images/service-icon-1.png" width="70" height="70" alt="service icon">
+                                </figure>
+                                <h3 class="h3 card-title">Recycled Packaging</h3>
+                                <p class="card-text">Our commitment to the planet: all orders are shipped in 100% recycled and recyclable packaging.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-card">
+                                <figure class="card-icon">
+                                    <img src="images/service-icon-2.png" width="70" height="70" alt="service icon">
+                                </figure>
+                                <h3 class="h3 card-title">Fast & Free Shipping</h3>
+                                <p class="card-text">Order by 2PM local time to get free shipping on orders with a min. spend of ₱499. Speedy delivery, sustainably.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-card">
+                                <figure class="card-icon">
+                                    <img src="images/service-icon-3.png" width="70" height="70" alt="service icon">
+                                </figure>
+                                <h3 class="h3 card-title">Secure Eco-Payment</h3>
+                                <p class="card-text">Shop with peace of mind. Enjoy secure payment options on all purchases, plus 20% off for orders over ₱999.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="service-card">
+                                <figure class="card-icon">
+                                    <img src="images/service-icon-4.png" width="70" height="70" alt="service icon">
+                                </figure>
+                                <h3 class="h3 card-title">24/7 Customer Support</h3>
+                                <p class="card-text">Our eco-support team is available 24/7 to assist you with any questions or concerns.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="cta has-bg-image" aria-label="cta" style="background-image: url('images/cta-bg.png')">
+                <div class="container">
+                    <figure class="cta-banner">
+                        <img src="images/cta-banner.png" width="900" height="660" alt="cat" class="w-100">
+                    </figure>
+                    <div class="cta-content">
+                        <img src="images/cta-icon.png" width="120" height="35" alt="green guarantee" class="img">
+                        <h2 class="h2 section-title">Explore Sustainable Finds and Enjoy <br>Our Green Guarantee!</h2>
+                        <p class="section-text">At EcoCommerce, we're committed to giving you curated collection that nourish our planet and your soul. If you’re looking for something different, we’ll help you find the perfect fit that truly supports your sustainable lifestyle – that’s our eco-promise!</p>
+                        <a href="#" class="btn">Find out more</a>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="testimonials">
+                    <div class="inner">
+                        <h2 class="h2 section-title">
+                            <span class="span">Customer </span>Reviews
+                        </h2>
+                        <div class="border"></div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="testimonial">
+                                    <img src="images/p1.png" alt="">
+                                    <div class="name">Christian B.</div>
+                                    <div class="wrapper">
+                                        <div class="rating-wrapper">
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star-half" aria-hidden="true"></ion-icon>
+                                        </div>
+                                    </div>
+
+                                    <p>
+                                        I recently tried EcoCommerce for the first time and I'm impressed! I purchased a set of reusable shopping bags and they've been incredibly useful. The quality is top-notch, and I appreciate their commitment to sustainability. I'd give them 4.5 stars!
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="testimonial">
+                                    <img src="images/p2.png" alt="">
+                                    <div class="name">Carissa M.</div>
+                                    <div class="wrapper">
+                                        <div class="rating-wrapper">
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                        </div>
+                                    </div>
+
+                                    <p>
+                                        EcoCommerce is my go-to for eco-friendly products. I recently bought a bamboo toothbrush and I couldn't be happier. The ordering process was smooth, the product arrived quickly, and it exceeded my expectations. 5 stars!
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="testimonial">
+                                    <img src="images/p3.png" alt="">
+                                    <div class="name">Mary Joy H.</div>
+                                    <div class="wrapper">
+                                        <div class="rating-wrapper">
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                            <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
+                                        </div>
+                                    </div>
+
+                                    <p>
+                                        I've been a loyal customer of EcoCommerce for a while now and they never disappoint. I recently purchased a pack of biodegradable cleaning wipes and they work wonders. There's always room for improvement, hence 4 stars!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+            <section class="section brand" aria-label="brand">
+                <div class="container">
+                    <h2 class="h2 section-title">
+                        <span class="span">Popular</span> Brands
+                    </h2>
+                    <ul class="has-scrollbar">
+                        <li class="scrollbar-item">
+                            <div class="brand-card img-holder" style="--width: 150; --height: 150;">
+                                <a href="https://www.thebamboocompany.ph/" target="_blank">
+                                    <img src="images/brand-1.png" width="150" height="150" alt="brand logo" class="img-cover">
+                                </a>
+                            </div>
+                        </li>
+                        <li class="scrollbar-item">
+                            <div class="brand-card img-holder" style="--width: 150; --height: 150;">
+                                <a href="https://echostore.ph/" target="_blank">
+                                    <img src="images/brand-2.png" width="150" height="150" alt="brand logo" class="img-cover">
+                                </a>
+                            </div>
+                        </li>
+                        <li class="scrollbar-item">
+                            <div class="brand-card img-holder" style="--width: 150; --height: 150;">
+                                <a href="https://arkanaturals.com/" target="_blank">
+                                    <img src="images/brand-3.png" width="150" height="150" alt="brand logo" class="img-cover">
+                                </a>
+                            </div>
+                        </li>
+                        <li class="scrollbar-item">
+                            <div class="brand-card img-holder" style="--width: 150; --height: 150;">
+                                <a href="https://www.kulturafilipino.com/collections/sustainably-sourced-bags" target="_blank">
+                                    <img src="images/brand-4.png" width="150" height="150" alt="brand logo" class="img-cover">
+                                </a>
+                            </div>
+                        </li>
+                        <li class="scrollbar-item">
+                            <div class="brand-card img-holder" style="--width: 150; --height: 150;">
+                                <a href="https://ecoshoppeph.com/collections/figtree-farms" target="_blank">
+                                    <img src="images/brand-5.png" width="150" height="150" alt="brand logo" class="img-cover">
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </article>
+    </main>
+    <footer class="footer" style="background-image: url('images/footer-bg.jpg')">
+        <div class="footer-top section">
+            <div class="container">
+                <div class="footer-brand">
+                    <a href="#" class="logo-1"><img src="images/footer-logo.png" alt=""></a>
+                    <p class="footer-text">
+                        If you have any question, please contact us at <a href="mailto:eco_commerce@gmail.com" class="link">eco_commerce@gmail.com</a>
+                    </p>
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+                            <address class="address">Brgy. Butong, Cabuyao City, Laguna, PH</address>
+                        </li>
+                        <li class="contact-item">
+                            <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+                            <a href="tel:+639876543210" class="contact-link">(+63) 987 6543 210</a>
+                        </li>
+                    </ul>
+                    <ul class="social-list">
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-pinterest"></ion-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="social-link">
+                                <ion-icon name="logo-instagram"></ion-icon>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="footer-list">
+                    <li>
+                        <p class="footer-list-title">Corporate</p>
+                    </li>
+                    <li><a href="#" class="footer-link">Careers</a></li>
+                    <li><a href="#" class="footer-link">About Us</a></li>
+                    <li><a href="#" class="footer-link">Contact Us</a></li>
+                    <li><a href="#" class="footer-link">FAQs</a></li>
+                    <li><a href="#" class="footer-link">Vendors</a></li>
+                    <li><a href="#" class="footer-link">Affiliate Program</a></li>
+                </ul>
+                <ul class="footer-list">
+                    <li>
+                        <p class="footer-list-title">Information</p>
+                    </li>
+                    <li><a href="#" class="footer-link">Online Store</a></li>
+                    <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                    <li><a href="#" class="footer-link">Refund Policy</a></li>
+                    <li><a href="#" class="footer-link">Shipping Policy</a></li>
+                    <li><a href="#" class="footer-link">Terms of Service</a></li>
+                    <li><a href="#" class="footer-link">Track Order</a></li>
+                </ul>
+                <ul class="footer-list">
+                    <li>
+                        <p class="footer-list-title">Services</p>
+                    </li>
+                    <li><a href="#" class="footer-link">Eco Product Guides</a></li>
+                    <li><a href="#" class="footer-link">Sustainable Workshops</a></li>
+                    <li><a href="#" class="footer-link">Green Home Consultations</a></li>
+                    <li><a href="#" class="footer-link">Zero-Waste Coaching</a></li>
+                    <li><a href="#" class="footer-link">Ethical Fashion Consults</a></li>
+                    <li><a href="#" class="footer-link">Resource Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">&copy; 2024. <a href="#" class="copyright-link">EcoCommerce</a>. All Rights Reserved.</p>
+                <img src="images/payment.png" width="397" height="32" alt="payment method" class="img">
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var popupBtns = document.querySelectorAll('.popup-btn');
+            var closeBtns = document.querySelectorAll('.close-btn');
+            var aboutUsBtn = document.getElementById('about');
+            var menuIcon = document.getElementById('menu-icon');
+            var closeMenuIcon = document.getElementById('close-menu');
+            var navlist = document.querySelector('.navlist');
+
+            var openPopup = function(popup) {
+                popup.classList.add('active');
+            };
+
+            var closePopup = function(popup) {
+                popup.classList.remove('active');
+            };
+
+            popupBtns.forEach((popupBtn) => {
+                popupBtn.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    var popup = popupBtn.closest('li').querySelector('.popup-view');
+                    openPopup(popup);
+                });
+            });
+
+            closeBtns.forEach((closeBtn) => {
+                closeBtn.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    var popup = closeBtn.closest('.popup-view');
+                    closePopup(popup);
+                });
+            });
+
+            aboutUsBtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                openPopup(document.getElementById('about-view'));
+            });
+
+            window.addEventListener('click', function(event) {
+                var popups = document.querySelectorAll('.popup-view.active');
+                popups.forEach(function(popup) {
+                    if (event.target === popup) {
+                        closePopup(popup);
+                    }
+                });
+            });
+
+            menuIcon.addEventListener('click', function() {
+                navlist.style.left = '0';
+            });
+
+            closeMenuIcon.addEventListener('click', function(event) {
+                event.preventDefault();
+                navlist.style.left = '-100%';
+            });
+
+            var navLinks = navlist.querySelectorAll('a');
+            navLinks.forEach((link) => {
+                link.addEventListener('click', function() {
+                    navlist.style.left = '-100%';
+                });
+            });
+        });
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
