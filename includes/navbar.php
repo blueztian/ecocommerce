@@ -12,7 +12,7 @@ $currentPage = $currentPage ?? '';
             <li><a href="index.php#category" <?= $currentPage === 'category' ? 'class="nav-active"' : '' ?>>Collections</a></li>
             <li><a href="index.php#blogs" <?= $currentPage === 'blogs' ? 'class="nav-active"' : '' ?>>Blogs</a></li>
             <li><a href="page.php?slug=about-us" <?= $currentPage === 'about-us' ? 'class="nav-active"' : '' ?>>About Us</a></li>
-            <li><a href="#" id="close-menu" aria-label="Close menu"><i class="fas fa-times" aria-hidden="true"></i> Close</a></li>
+            <li><button type="button" id="close-menu" aria-label="Close menu" style="background:none; border:none; color:inherit; font:inherit; cursor:pointer; padding:0;"><i class="fas fa-times" aria-hidden="true"></i> Close</button></li>
         </ul>
         <div class="nav-right">
             <div class="search-wrap" id="search-wrap">
@@ -33,6 +33,11 @@ $currentPage = $currentPage ?? '';
             <a href="cart.php" class="cart-icon-link" title="View Cart" aria-label="Shopping cart">
                 <i class="ri-shopping-cart-2-line" aria-hidden="true"></i>
                 <span class="cart-badge" id="cart-badge" <?= $cartCount === 0 ? 'style="display:none"' : '' ?>><?= $cartCount ?></span>
+            </a>
+            <a href="wishlist.php" class="cart-icon-link" title="View Wishlist" aria-label="Wishlist" <?= $currentPage === 'wishlist' ? 'class="nav-active"' : '' ?>>
+                <i class="ri-heart-line" aria-hidden="true"></i>
+                <?php $wishlistCount = (new WishlistService())->getCount(); ?>
+                <span class="cart-badge" id="wishlist-badge" <?= $wishlistCount === 0 ? 'style="display:none"' : '' ?>><?= $wishlistCount ?></span>
             </a>
             <a href="profile.php" title="My Profile" aria-label="My profile" <?= $currentPage === 'profile' ? 'class="nav-active"' : '' ?>>
                 <i class="ri-user-line" aria-hidden="true"></i>

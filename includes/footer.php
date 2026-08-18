@@ -17,10 +17,10 @@
                         </li>
                     </ul>
                     <ul class="social-list">
-                        <li><a href="javascript:void(0)" class="social-link" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a></li>
-                        <li><a href="javascript:void(0)" class="social-link" aria-label="Twitter"><ion-icon name="logo-twitter"></ion-icon></a></li>
-                        <li><a href="javascript:void(0)" class="social-link" aria-label="Pinterest"><ion-icon name="logo-pinterest"></ion-icon></a></li>
-                        <li><a href="javascript:void(0)" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                        <li><a href="https://facebook.com/ecocommerce" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                        <li><a href="https://twitter.com/ecocommerce" target="_blank" rel="noopener" class="social-link" aria-label="Twitter"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                        <li><a href="https://pinterest.com/ecocommerce" target="_blank" rel="noopener" class="social-link" aria-label="Pinterest"><ion-icon name="logo-pinterest"></ion-icon></a></li>
+                        <li><a href="https://instagram.com/ecocommerce" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
                     </ul>
                 </div>
                 <ul class="footer-list">
