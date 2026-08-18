@@ -128,4 +128,39 @@ document.addEventListener('DOMContentLoaded', function () {
             closePopup(popup);
         });
     });
+
+    // --- AJAX Add to Wishlist ---
+    function updateWishlistBadge(count) {
+        const badge = document.getElementById('wishlist-badge');
+        if (!badge) return;
+        badge.textContent = count;
+        badge.style.display = count > 0 ? 'inline-block' : 'none';
+    }
+
+    function addToWishlist(productId) {
+        fetch('actions/wishlist-add.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({ csrf_token: CSRF, product_id: productId })
+        })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+            if (data.success) {
+                updateWishlistBadge(data.wishlistCount);
+                showToast(data.message, false);
+            } else {
+                showToast(data.message || 'Error adding to wishlist.', true);
+            }
+        })
+        .catch(function () { showToast('Network error. Please try again.', true); });
+    }
+
+    document.querySelectorAll('.add-to-wishlist').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            addToWishlist(btn.dataset.productId);
+            const popup = btn.closest('.popup-view');
+            if (popup) closePopup(popup);
+        });
+    });
 });

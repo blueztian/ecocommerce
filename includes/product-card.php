@@ -23,7 +23,7 @@
                 <span class="span">(<?= (int)$product['review_count'] ?>)</span>
             </div>
             <h3 class="h3">
-                <a href="#" class="card-title popup-btn"><?= e($product['name']) ?></a>
+                <button type="button" class="card-title popup-btn" style="background:none; border:none; text-align:left; font:inherit; cursor:pointer; padding:0; display:inline; color:inherit;"><?= e($product['name']) ?></button>
             </h3>
             <data class="card-price" value="<?= e($product['price']) ?>">
                 <?= formatPrice((float)$product['price']) ?>
@@ -32,7 +32,7 @@
     </div>
     <div class="popup-view">
         <div class="popup-card">
-            <a href="#" class="close-btn"><i class="ri-close-circle-fill"></i></a>
+            <button type="button" class="close-btn" aria-label="Close product details" style="background:none; border:none; font:inherit; cursor:pointer; padding:0; display:inline-block;"><i class="ri-close-circle-fill"></i></button>
             <div class="product-img">
                 <img src="<?= e($product['image']) ?>">
             </div>
@@ -43,9 +43,11 @@
                     </h3>
                     <p><?= e($product['description']) ?></p>
                     <span class="price"><?= formatPrice((float)$product['price']) ?></span>
-                    <a href="#" class="add-cart-btn popup-add-to-cart"
-                       data-product-id="<?= (int)$product['id'] ?>">Add to Cart</a>
-                    <a href="javascript:void(0)" class="add-to-wishlist" onclick="alert('Wishlist feature coming soon!'); return false;">Add to Wishlist</a>
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <button type="button" class="add-cart-btn popup-add-to-cart"
+                           data-product-id="<?= (int)$product['id'] ?>" style="cursor:pointer; font-family: inherit; font-size: inherit; margin: 0;">Add to Cart</button>
+                        <button type="button" class="add-to-wishlist" data-product-id="<?= (int)$product['id'] ?>" style="background:none; border:none; font:inherit; cursor:pointer; color:inherit; text-decoration: underline;">Add to Wishlist</button>
+                    </div>
                 </div>
             </div>
         </div>

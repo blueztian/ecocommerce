@@ -8,6 +8,7 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once __DIR__ . '/config/database.php';
 require_once __DIR__ . '/repositories/ProductRepository.php';
 require_once __DIR__ . '/repositories/OrderRepository.php';
+require_once __DIR__ . '/services/WishlistService.php';
 require_once __DIR__ . '/services/CartService.php';
 require_once __DIR__ . '/services/OrderService.php';
 
