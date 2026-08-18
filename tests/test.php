@@ -7,6 +7,11 @@
 
 define('RUNNING_TESTS', true);
 
+ob_start(); // Prevent headers already sent when switching sessions
+
+// ---- Setup: unique session for test isolation ----
+session_id('test-' . uniqid());
+
 require_once __DIR__ . '/../bootstrap.php';
 
 // Minimal test framework
@@ -24,10 +29,10 @@ function test(string $name, bool $condition): void {
     }
 }
 
-// ---- Setup: unique session for test isolation ----
-session_id('test_' . uniqid());
-session_start();
-$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+// Ensure CSRF token is set
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 
 // ---- Product tests ----
 $repo = new ProductRepository();
@@ -103,7 +108,7 @@ if ($cart->getCount() === 0 && $firstProduct) {
 
 // Empty-cart order rejection: use a fresh session
 session_write_close();
-session_id('test_empty_' . uniqid());
+session_id('test-empty-' . uniqid());
 session_start();
 $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
@@ -113,7 +118,7 @@ test('15. Placing order with empty cart returns false', $emptyResult === false);
 
 // Restore test session and place real order
 session_write_close();
-session_id('test_' . uniqid());
+session_id('test-' . uniqid());
 session_start();
 $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
@@ -141,7 +146,70 @@ $cart->addItem((int)($firstProduct['id'] ?? 1), 1);
 $cart->clearCart();
 test('21. clearCart empties the session cart', $cart->getCount() === 0);
 
+// ---- Search tests ----
+$searchRepo = new ProductRepository();
+
+$searchResults = $searchRepo->search('bamboo');
+test('22. search() returns array',         is_array($searchResults));
+test('23. search("bamboo") finds results', count($searchResults) > 0);
+
+$emptySearch = $searchRepo->search('xyzzy_notaproduct_12345');
+test('24. search() returns empty for no match', count($emptySearch) === 0);
+
+// Case-insensitive: should match same as lowercase
+$upperResults = $searchRepo->search('BAMBOO');
+test('25. search() is case-insensitive', count($upperResults) > 0);
+
+// ---- OrderRepository tests ----
+require_once __DIR__ . '/../repositories/OrderRepository.php';
+
+// Place an order in main test session to work with
+session_write_close();
+$testSid = 'test-ord-' . uniqid();
+session_id($testSid);
+session_start();
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+
+$cart3 = new CartService();
+if ($firstProduct) {
+    $cart3->addItem((int)$firstProduct['id'], 1);
+}
+$orderSvc2 = new OrderService();
+$testOrderId = $orderSvc2->placeOrder();
+
+$orderRepo = new OrderRepository();
+
+// History returns current session orders
+$history = $orderRepo->getBySession($testSid);
+test('26. getBySession returns orders for current session', count($history) > 0);
+
+// History does NOT return other session's orders
+$otherHistory = $orderRepo->getBySession('completely_different_session_99999');
+test('27. getBySession isolates by session_id', count($otherHistory) === 0);
+
+// Detail accessible from correct session
+if ($testOrderId) {
+    $detail = $orderRepo->getByIdForSession($testOrderId, $testSid);
+    test('28. getByIdForSession returns order for correct session', $detail !== false);
+
+    // Detail NOT accessible from wrong session
+    $denied = $orderRepo->getByIdForSession($testOrderId, 'wrong_session_id');
+    test('29. getByIdForSession denies wrong session', $denied === false);
+
+    // Items populated
+    $items2 = $orderRepo->getItems($testOrderId);
+    test('30. getItems returns line items for order', count($items2) > 0);
+}
+
+// Summary totals
+$summary = $orderRepo->getSummaryForSession($testSid);
+test('31. getSummaryForSession returns total_orders >= 1',   (int)$summary['total_orders'] >= 1);
+test('32. getSummaryForSession returns total_items >= 1',    (int)$summary['total_items'] >= 1);
+test('33. getSummaryForSession returns total_spent > 0',     (float)$summary['total_spent'] > 0);
+
 // ---- Summary ----
+ob_end_flush();
 echo "\n";
 echo "Passed: {$passed} | Failed: {$failed}\n";
 exit($failed > 0 ? 1 : 0);
+
