@@ -40,7 +40,7 @@ include 'includes/navbar.php';
                     <li class="scrollbar-item reveal-scale">
                         <div class="category-card">
                             <figure class="card-banner img-holder" style="--width: 330; --height: 300;">
-                                <img src="images/category-1.png" width="330" height="300" alt="EcoHome Essentials" class="img-cover" loading="lazy">
+                                <a href="index.php?category=EcoHome+Essentials" aria-label="Shop EcoHome Essentials"><img src="images/category-1.png" width="330" height="300" alt="EcoHome Essentials" class="img-cover" loading="lazy"></a>
                             </figure>
                             <h3 class="h3"><a href="index.php?category=EcoHome+Essentials" class="card-title">EcoHome Essentials</a></h3>
                         </div>
@@ -48,7 +48,7 @@ include 'includes/navbar.php';
                     <li class="scrollbar-item reveal-scale">
                         <div class="category-card">
                             <figure class="card-banner img-holder" style="--width: 330; --height: 300;">
-                                <img src="images/category-2.png" width="330" height="300" alt="EcoFashion Finds" class="img-cover" loading="lazy">
+                                <a href="index.php?category=EcoFashion+Finds" aria-label="Shop EcoFashion Finds"><img src="images/category-2.png" width="330" height="300" alt="EcoFashion Finds" class="img-cover" loading="lazy"></a>
                             </figure>
                             <h3 class="h3"><a href="index.php?category=EcoFashion+Finds" class="card-title">EcoFashion Finds</a></h3>
                         </div>
@@ -56,7 +56,7 @@ include 'includes/navbar.php';
                     <li class="scrollbar-item reveal-scale">
                         <div class="category-card">
                             <figure class="card-banner img-holder" style="--width: 330; --height: 300;">
-                                <img src="images/category-3.png" width="330" height="300" alt="EcoBeauty Basics" class="img-cover" loading="lazy">
+                                <a href="index.php?category=EcoBeauty+Basics" aria-label="Shop EcoBeauty Basics"><img src="images/category-3.png" width="330" height="300" alt="EcoBeauty Basics" class="img-cover" loading="lazy"></a>
                             </figure>
                             <h3 class="h3"><a href="index.php?category=EcoBeauty+Basics" class="card-title">EcoBeauty Basics</a></h3>
                         </div>
@@ -64,7 +64,7 @@ include 'includes/navbar.php';
                     <li class="scrollbar-item reveal-scale">
                         <div class="category-card">
                             <figure class="card-banner img-holder" style="--width: 330; --height: 300;">
-                                <img src="images/category-4.png" width="330" height="300" alt="EcoGourmet Goods" class="img-cover" loading="lazy">
+                                <a href="index.php?category=EcoGourmet+Goods" aria-label="Shop EcoGourmet Goods"><img src="images/category-4.png" width="330" height="300" alt="EcoGourmet Goods" class="img-cover" loading="lazy"></a>
                             </figure>
                             <h3 class="h3"><a href="index.php?category=EcoGourmet+Goods" class="card-title">EcoGourmet Goods</a></h3>
                         </div>
@@ -82,7 +82,7 @@ include 'includes/navbar.php';
                              style="background-image: url('images/blog-banner-1.png'); --width: 540; --height: 374;">
                             <p class="card-subtitle">PRACTICAL ADVICE FOR GREENER LIVING.</p>
                             <h3 class="h3 card-title">Eco-Friendly Tips</h3>
-                            <a href="page.php?slug=resource-center" class="btn">Read More</a>
+                            <a href="page.php?slug=eco-friendly-tips" class="btn">Read More</a>
                         </div>
                     </li>
                     <li class="reveal">
@@ -90,7 +90,7 @@ include 'includes/navbar.php';
                              style="background-image: url('images/blog-banner-2.png'); --width: 540; --height: 374;">
                             <p class="card-subtitle">ECO-FRIENDLY SOLUTIONS FOR EVERYDAY LIFE.</p>
                             <h3 class="h3 card-title">Sustainable Living</h3>
-                            <a href="page.php?slug=resource-center" class="btn">Read More</a>
+                            <a href="page.php?slug=sustainable-living" class="btn">Read More</a>
                         </div>
                     </li>
                     <li class="reveal-right">
@@ -98,7 +98,7 @@ include 'includes/navbar.php';
                              style="background-image: url('images/blog-banner-3.png'); --width: 540; --height: 374;">
                             <p class="card-subtitle">DISCOVER THE LATEST IN ECO TRENDS.</p>
                             <h3 class="h3 card-title">Green Innovations</h3>
-                            <a href="page.php?slug=resource-center" class="btn">Read More</a>
+                            <a href="page.php?slug=green-innovations" class="btn">Read More</a>
                         </div>
                     </li>
                 </ul>
@@ -108,11 +108,21 @@ include 'includes/navbar.php';
         <!-- Products (from DB) -->
         <section class="section product" id="shop" aria-label="product">
             <div class="container">
-                <h2 class="h2 section-title"><span class="span">Best</span> Sellers</h2>
+                <?php if ($filterCat !== ''): ?>
+                    <h2 class="h2 section-title"><span class="span">Showing:</span> <?= e($filterCat) ?></h2>
+                    <p style="text-align: center; margin-top: -15px; margin-bottom: 30px;"><a href="index.php#shop" style="color: var(--emerald); text-decoration: underline;">View All Products</a></p>
+                <?php else: ?>
+                    <h2 class="h2 section-title"><span class="span">Best</span> Sellers</h2>
+                <?php endif; ?>
+                
                 <ul class="grid-list">
-                    <?php foreach ($products as $product): ?>
-                        <?php include 'includes/product-card.php'; ?>
-                    <?php endforeach; ?>
+                    <?php if (empty($products)): ?>
+                        <li style="grid-column: 1 / -1; text-align: center;">No products found in this category.</li>
+                    <?php else: ?>
+                        <?php foreach ($products as $product): ?>
+                            <?php include 'includes/product-card.php'; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </ul>
             </div>
         </section>

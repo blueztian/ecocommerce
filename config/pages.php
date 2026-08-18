@@ -411,20 +411,118 @@ return [
         'title' => 'Resource Center',
         'content' => '
 <h2 class="h2 section-title"><span class="span">Resource</span> Center</h2>
-<p class="page-lead">Knowledge is the first step toward sustainable living. Our resource center is your go-to library for eco-friendly guides, articles, and tools.</p>
-<div class="page-cards">
-  <div class="page-card">
-    <h3 class="h3">Sustainability Guides</h3>
-    <p>Step-by-step guides for transitioning to zero-waste, building a sustainable kitchen, shopping ethically, and reducing your carbon footprint at home and on the go.</p>
+<p class="page-lead">Knowledge is the first step toward sustainable living. Browse our latest articles and practical advice for greener living.</p>
+<div class="page-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+  
+  <div class="page-card" style="padding:0; overflow:hidden;">
+    <img src="images/blog-banner-1.png" alt="Eco-Friendly Tips" style="width: 100%; height: 200px; object-fit: cover;">
+    <div style="padding: 25px;">
+        <p class="card-subtitle" style="color: var(--emerald); font-size: 1.2rem; font-weight: 600; margin-bottom: 10px;">PRACTICAL ADVICE FOR GREENER LIVING.</p>
+        <h3 class="h3">Eco-Friendly Tips</h3>
+        <p style="margin: 15px 0;">Small changes can make a big impact. Discover practical advice for transitioning to a greener lifestyle seamlessly.</p>
+        <a href="page.php?slug=eco-friendly-tips" class="btn" style="display:inline-block;">Read More</a>
+    </div>
   </div>
-  <div class="page-card">
-    <h3 class="h3">Product Care Tips</h3>
-    <p>Detailed instructions for caring for bamboo, abaca, pandan, and other natural materials so your eco-friendly products last longer and serve their purpose fully.</p>
+
+  <div class="page-card" style="padding:0; overflow:hidden;">
+    <img src="images/blog-banner-2.png" alt="Sustainable Living" style="width: 100%; height: 200px; object-fit: cover;">
+    <div style="padding: 25px;">
+        <p class="card-subtitle" style="color: var(--emerald); font-size: 1.2rem; font-weight: 600; margin-bottom: 10px;">ECO-FRIENDLY SOLUTIONS FOR EVERYDAY LIFE.</p>
+        <h3 class="h3">Sustainable Living</h3>
+        <p style="margin: 15px 0;">Embrace eco-friendly solutions for your everyday routines. From kitchen habits to zero-waste practices.</p>
+        <a href="page.php?slug=sustainable-living" class="btn" style="display:inline-block;">Read More</a>
+    </div>
   </div>
-  <div class="page-card">
-    <h3 class="h3">Community Links</h3>
-    <p>Discover local environmental organizations, zero-waste groups, and sustainability communities in the Philippines where you can connect, share, and grow together.</p>
+
+  <div class="page-card" style="padding:0; overflow:hidden;">
+    <img src="images/blog-banner-3.png" alt="Green Innovations" style="width: 100%; height: 200px; object-fit: cover;">
+    <div style="padding: 25px;">
+        <p class="card-subtitle" style="color: var(--emerald); font-size: 1.2rem; font-weight: 600; margin-bottom: 10px;">DISCOVER THE LATEST IN ECO TRENDS.</p>
+        <h3 class="h3">Green Innovations</h3>
+        <p style="margin: 15px 0;">Explore the latest eco trends and green technologies paving the way for a more sustainable future.</p>
+        <a href="page.php?slug=green-innovations" class="btn" style="display:inline-block;">Read More</a>
+    </div>
   </div>
+
+</div>
+',
+    ],
+    'eco-friendly-tips' => [
+        'title' => 'Eco-Friendly Tips | Resource Center',
+        'content' => '
+<div style="max-width: 800px; margin: 0 auto;">
+    <a href="page.php?slug=resource-center" style="color: var(--emerald); display:inline-block; margin-bottom: 20px;">&larr; Back to Resource Center</a>
+    <img src="images/blog-banner-1.png" alt="Eco-Friendly Tips" style="width: 100%; height: auto; border-radius: 15px; margin-bottom: 30px;">
+    
+    <p class="card-subtitle" style="color: var(--emerald); font-size: 1.2rem; font-weight: 600; margin-bottom: 10px;">PRACTICAL ADVICE FOR GREENER LIVING.</p>
+    <h2 class="h2 section-title" style="text-align: left;"><span class="span">Eco-Friendly</span> Tips</h2>
+    
+    <div style="font-size: 1.6rem; line-height: 1.8; color: var(--onyx);">
+        <p style="margin-bottom: 20px;">Transitioning to a greener lifestyle doesn\'t have to be overwhelming. In fact, the most sustainable changes are often the smallest ones that easily fit into your daily routine. By making a few mindful adjustments, you can significantly reduce your environmental footprint without sacrificing comfort.</p>
+        
+        <h3 class="h3" style="margin: 30px 0 15px;">1. Reevaluate Your Waste</h3>
+        <p style="margin-bottom: 20px;">Start by looking at what you throw away. Often, simple swaps like switching from single-use plastic bags to reusable totes, or trading plastic wrap for beeswax wraps, can dramatically cut down your weekly waste.</p>
+        
+        <h3 class="h3" style="margin: 30px 0 15px;">2. Conserve Energy at Home</h3>
+        <p style="margin-bottom: 20px;">Energy conservation is a cornerstone of eco-friendly living. Make it a habit to turn off lights when leaving a room, unplug appliances that aren\'t in use, and rely on natural light whenever possible during the day. Consider investing in LED bulbs, which use significantly less energy and last longer than traditional lighting.</p>
+        
+        <h3 class="h3" style="margin: 30px 0 15px;">3. Shop with Purpose</h3>
+        <p style="margin-bottom: 20px;">Support brands and businesses that prioritize sustainability. Look for products made from natural, biodegradable materials—such as bamboo, abaca, and organic cotton. Mindful purchasing not only reduces waste but also sends a clear message to the industry about consumer priorities.</p>
+        
+        <p style="margin-top: 40px; font-weight: bold;">Remember: Sustainability is a journey, not a destination. Start small, stay consistent, and celebrate the positive impact you\'re making!</p>
+    </div>
+</div>
+',
+    ],
+    'sustainable-living' => [
+        'title' => 'Sustainable Living | Resource Center',
+        'content' => '
+<div style="max-width: 800px; margin: 0 auto;">
+    <a href="page.php?slug=resource-center" style="color: var(--emerald); display:inline-block; margin-bottom: 20px;">&larr; Back to Resource Center</a>
+    <img src="images/blog-banner-2.png" alt="Sustainable Living" style="width: 100%; height: auto; border-radius: 15px; margin-bottom: 30px;">
+    
+    <p class="card-subtitle" style="color: var(--emerald); font-size: 1.2rem; font-weight: 600; margin-bottom: 10px;">ECO-FRIENDLY SOLUTIONS FOR EVERYDAY LIFE.</p>
+    <h2 class="h2 section-title" style="text-align: left;"><span class="span">Sustainable</span> Living</h2>
+    
+    <div style="font-size: 1.6rem; line-height: 1.8; color: var(--onyx);">
+        <p style="margin-bottom: 20px;">Sustainable living means making choices that reduce our reliance on Earth\'s natural resources and actively minimizing the harm we cause to the environment. It involves examining our daily habits and finding eco-friendly solutions for everything we do.</p>
+        
+        <h3 class="h3" style="margin: 30px 0 15px;">The Zero-Waste Mindset</h3>
+        <p style="margin-bottom: 20px;">While achieving absolute zero waste is incredibly difficult, adopting the mindset is powerful. The core principle revolves around the 5 R\'s: Refuse what you don\'t need, Reduce what you do need, Reuse by utilizing reusables, Recycle what you can\'t refuse, reduce, or reuse, and Rot (compost) the rest.</p>
+        
+        <h3 class="h3" style="margin: 30px 0 15px;">Sustainable Eating</h3>
+        <p style="margin-bottom: 20px;">Our diet plays a massive role in our carbon footprint. Integrating more plant-based meals into your week, buying seasonal and locally sourced produce, and actively planning meals to prevent food waste are highly effective ways to live more sustainably.</p>
+        
+        <h3 class="h3" style="margin: 30px 0 15px;">Eco-Friendly Cleaning</h3>
+        <p style="margin-bottom: 20px;">Traditional cleaning products are often packed with harsh chemicals in single-use plastic bottles. Try making your own cleaners using simple, natural ingredients like white vinegar, baking soda, and essential oils. Not only is this better for the planet, but it\'s also healthier for your home environment.</p>
+    </div>
+</div>
+',
+    ],
+    'green-innovations' => [
+        'title' => 'Green Innovations | Resource Center',
+        'content' => '
+<div style="max-width: 800px; margin: 0 auto;">
+    <a href="page.php?slug=resource-center" style="color: var(--emerald); display:inline-block; margin-bottom: 20px;">&larr; Back to Resource Center</a>
+    <img src="images/blog-banner-3.png" alt="Green Innovations" style="width: 100%; height: auto; border-radius: 15px; margin-bottom: 30px;">
+    
+    <p class="card-subtitle" style="color: var(--emerald); font-size: 1.2rem; font-weight: 600; margin-bottom: 10px;">DISCOVER THE LATEST IN ECO TRENDS.</p>
+    <h2 class="h2 section-title" style="text-align: left;"><span class="span">Green</span> Innovations</h2>
+    
+    <div style="font-size: 1.6rem; line-height: 1.8; color: var(--onyx);">
+        <p style="margin-bottom: 20px;">The fight against climate change and environmental degradation has sparked incredible creativity. Today, green innovations are emerging across various industries, offering exciting glimpses into a more sustainable future.</p>
+        
+        <h3 class="h3" style="margin: 30px 0 15px;">Materials of the Future</h3>
+        <p style="margin-bottom: 20px;">Scientists and designers are moving away from plastics and synthetics, turning instead to biodegradable and regenerative materials. We are now seeing leather alternatives made from mycelium (mushroom roots) and pineapple leaves, packaging created from seaweed, and textiles derived from agricultural waste.</p>
+        
+        <h3 class="h3" style="margin: 30px 0 15px;">Smart Energy Management</h3>
+        <p style="margin-bottom: 20px;">Technology is allowing homes to become vastly more energy-efficient. Smart thermostats that learn your habits to minimize heating/cooling waste, combined with more accessible solar panel technology, are decentralizing energy production and drastically lowering household carbon footprints.</p>
+        
+        <h3 class="h3" style="margin: 30px 0 15px;">Circular Economy Models</h3>
+        <p style="margin-bottom: 20px;">The traditional "take-make-dispose" model is being challenged by the circular economy. Innovations in reverse logistics, upcycling, and "product-as-a-service" business models ensure that materials are kept in circulation for as long as possible, reducing the need for raw material extraction.</p>
+        
+        <p style="margin-top: 40px; font-weight: bold;">By staying informed and supporting these innovations, consumers play a vital role in accelerating the transition to a sustainable global economy.</p>
+    </div>
 </div>
 ',
     ],
