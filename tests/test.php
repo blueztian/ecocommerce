@@ -207,6 +207,26 @@ test('31. getSummaryForSession returns total_orders >= 1',   (int)$summary['tota
 test('32. getSummaryForSession returns total_items >= 1',    (int)$summary['total_items'] >= 1);
 test('33. getSummaryForSession returns total_spent > 0',     (float)$summary['total_spent'] > 0);
 
+// ---- Wishlist tests ----
+$wishlistSvc = new WishlistService();
+test('34. Wishlist starts empty', $wishlistSvc->getCount() === 0);
+
+$prodId = $firstProduct ? (int)$firstProduct['id'] : 1;
+$wishlistSvc->add($prodId);
+test('35. Wishlist add works', $wishlistSvc->getCount() === 1);
+test('36. Wishlist contains product', $wishlistSvc->contains($prodId) === true);
+
+$wishlistSvc->add($prodId);
+test('37. Wishlist duplicate prevention works', $wishlistSvc->getCount() === 1);
+
+$wishlistSvc->remove($prodId);
+test('38. Wishlist remove works', $wishlistSvc->getCount() === 0);
+test('39. Wishlist no longer contains product', $wishlistSvc->contains($prodId) === false);
+
+$wishlistSvc->add(0);
+$wishlistSvc->add(-1);
+test('40. Invalid wishlist product prevented', $wishlistSvc->getCount() === 0);
+
 // ---- Summary ----
 ob_end_flush();
 echo "\n";
