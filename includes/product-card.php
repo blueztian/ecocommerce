@@ -2,7 +2,7 @@
 // $product must be set before including this file
 // e() and renderStars() are from bootstrap.php
 ?>
-<li>
+<li class="reveal-scale">
     <div class="product-card">
         <div class="card-banner img-holder" style="--width: 360; --height: 360;">
             <img src="<?= e($product['image']) ?>" width="360" height="360"
@@ -45,7 +45,7 @@
                     <span class="price"><?= formatPrice((float)$product['price']) ?></span>
                     <a href="#" class="add-cart-btn popup-add-to-cart"
                        data-product-id="<?= (int)$product['id'] ?>">Add to Cart</a>
-                    <a href="#" class="add-to-wishlist">Add to Wishlist</a>
+                    <a href="javascript:void(0)" class="add-to-wishlist" onclick="alert('Wishlist feature coming soon!'); return false;">Add to Wishlist</a>
                 </div>
             </div>
         </div>

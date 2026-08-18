@@ -1,11 +1,19 @@
 <?php
 require_once __DIR__ . '/bootstrap.php';
 
-$pageTitle = 'EcoCommerce - Sustainable Solutions for Online Shopping';
+$pageTitle   = 'EcoCommerce - Sustainable Solutions for Online Shopping';
 $metaDescription = 'Shop eco-friendly products at EcoCommerce. Sustainable home essentials, beauty, fashion, and gourmet goods sourced responsibly.';
+$currentPage = 'home';
 
 $productRepo = new ProductRepository();
-$products    = $productRepo->getAll();
+
+// Optional category filter
+$filterCat = trim($_GET['category'] ?? '');
+if ($filterCat !== '') {
+    $products = $productRepo->getByCategory($filterCat);
+} else {
+    $products = $productRepo->getAll();
+}
 
 $cart      = new CartService();
 $cartCount = $cart->getCount();
@@ -27,38 +35,38 @@ include 'includes/navbar.php';
         <!-- Categories -->
         <section class="section category" id="category">
             <div class="container">
-                <h2 class="h2 section-title"><span class="span">Top</span> Categories</h2>
+                <h2 class="h2 section-title reveal"><span class="span">Top</span> Categories</h2>
                 <ul class="has-scrollbar">
-                    <li class="scrollbar-item">
+                    <li class="scrollbar-item reveal-scale">
                         <div class="category-card">
                             <figure class="card-banner img-holder" style="--width: 330; --height: 300;">
-                                <img src="images/category-1.png" width="330" height="300" alt="Kitchen Tools" class="img-cover">
+                                <img src="images/category-1.png" width="330" height="300" alt="EcoHome Essentials" class="img-cover" loading="lazy">
                             </figure>
-                            <h3 class="h3"><a href="#" class="card-title">EcoHome Essentials</a></h3>
+                            <h3 class="h3"><a href="index.php?category=EcoHome+Essentials" class="card-title">EcoHome Essentials</a></h3>
                         </div>
                     </li>
-                    <li class="scrollbar-item">
+                    <li class="scrollbar-item reveal-scale">
                         <div class="category-card">
                             <figure class="card-banner img-holder" style="--width: 330; --height: 300;">
-                                <img src="images/category-2.png" width="330" height="300" alt="Tote Bag" class="img-cover">
+                                <img src="images/category-2.png" width="330" height="300" alt="EcoFashion Finds" class="img-cover" loading="lazy">
                             </figure>
-                            <h3 class="h3"><a href="#" class="card-title">EcoFashion Finds</a></h3>
+                            <h3 class="h3"><a href="index.php?category=EcoFashion+Finds" class="card-title">EcoFashion Finds</a></h3>
                         </div>
                     </li>
-                    <li class="scrollbar-item">
+                    <li class="scrollbar-item reveal-scale">
                         <div class="category-card">
                             <figure class="card-banner img-holder" style="--width: 330; --height: 300;">
-                                <img src="images/category-3.png" width="330" height="300" alt="Beauty Products" class="img-cover">
+                                <img src="images/category-3.png" width="330" height="300" alt="EcoBeauty Basics" class="img-cover" loading="lazy">
                             </figure>
-                            <h3 class="h3"><a href="#" class="card-title">EcoBeauty Basics</a></h3>
+                            <h3 class="h3"><a href="index.php?category=EcoBeauty+Basics" class="card-title">EcoBeauty Basics</a></h3>
                         </div>
                     </li>
-                    <li class="scrollbar-item">
+                    <li class="scrollbar-item reveal-scale">
                         <div class="category-card">
                             <figure class="card-banner img-holder" style="--width: 330; --height: 300;">
-                                <img src="images/category-4.png" width="330" height="300" alt="Gourmet Goods" class="img-cover">
+                                <img src="images/category-4.png" width="330" height="300" alt="EcoGourmet Goods" class="img-cover" loading="lazy">
                             </figure>
-                            <h3 class="h3"><a href="#" class="card-title">EcoGourmet Goods</a></h3>
+                            <h3 class="h3"><a href="index.php?category=EcoGourmet+Goods" class="card-title">EcoGourmet Goods</a></h3>
                         </div>
                     </li>
                 </ul>
@@ -69,28 +77,28 @@ include 'includes/navbar.php';
         <section class="section blogs" id="blogs" aria-label="blogs">
             <div class="container">
                 <ul class="grid-list">
-                    <li>
+                    <li class="reveal-left">
                         <div class="blog-card has-bg-image img-holder"
                              style="background-image: url('images/blog-banner-1.png'); --width: 540; --height: 374;">
                             <p class="card-subtitle">PRACTICAL ADVICE FOR GREENER LIVING.</p>
                             <h3 class="h3 card-title">Eco-Friendly Tips</h3>
-                            <a href="#" class="btn">Read More</a>
+                            <a href="page.php?slug=resource-center" class="btn">Read More</a>
                         </div>
                     </li>
-                    <li>
+                    <li class="reveal">
                         <div class="blog-card has-bg-image img-holder"
                              style="background-image: url('images/blog-banner-2.png'); --width: 540; --height: 374;">
                             <p class="card-subtitle">ECO-FRIENDLY SOLUTIONS FOR EVERYDAY LIFE.</p>
                             <h3 class="h3 card-title">Sustainable Living</h3>
-                            <a href="#" class="btn">Read More</a>
+                            <a href="page.php?slug=resource-center" class="btn">Read More</a>
                         </div>
                     </li>
-                    <li>
+                    <li class="reveal-right">
                         <div class="blog-card has-bg-image img-holder"
                              style="background-image: url('images/blog-banner-3.png'); --width: 540; --height: 374;">
                             <p class="card-subtitle">DISCOVER THE LATEST IN ECO TRENDS.</p>
                             <h3 class="h3 card-title">Green Innovations</h3>
-                            <a href="#" class="btn">Read More</a>
+                            <a href="page.php?slug=resource-center" class="btn">Read More</a>
                         </div>
                     </li>
                 </ul>
@@ -167,7 +175,7 @@ include 'includes/navbar.php';
                     <img src="images/cta-icon.png" width="120" height="35" alt="green guarantee" class="img">
                     <h2 class="h2 section-title">Explore Sustainable Finds and Enjoy <br>Our Green Guarantee!</h2>
                     <p class="section-text">At EcoCommerce, we're committed to giving you curated collection that nourish our planet and your soul. If you're looking for something different, we'll help you find the perfect fit that truly supports your sustainable lifestyle – that's our eco-promise!</p>
-                    <a href="#" class="btn">Find out more</a>
+                    <a href="page.php?slug=about-us" class="btn">Find out more</a>
                 </div>
             </div>
         </section>

@@ -1,46 +1,44 @@
 <?php
-// $cartCount should be set before including this file
-$cartCount = $cartCount ?? 0;
+$cartCount  = $cartCount ?? 0;
+$currentPage = $currentPage ?? '';
 ?>
     <header>
-        <a href="index.php" class="logo">
-            <img src="images/logooo.png" alt="Logo" class="logo">
+        <a href="index.php" class="logo" aria-label="EcoCommerce Home">
+            <img src="images/logooo.png" alt="EcoCommerce" class="logo">
         </a>
-        <ul class="navlist">
-            <li><a href="index.php#home">Home</a></li>
-            <li><a href="index.php#shop">Shop</a></li>
-            <li><a href="index.php#category">Collections</a></li>
-            <li><a href="index.php#blogs">Blogs</a></li>
-            <li><a href="#" id="about">About Us</a></li>
-            <li><a href="#" id="close-menu"><i class="fas fa-times"></i> Close</a></li>
+        <ul class="navlist" role="navigation" aria-label="Main navigation">
+            <li><a href="index.php#home" <?= $currentPage === 'home' ? 'class="nav-active"' : '' ?>>Home</a></li>
+            <li><a href="index.php#shop" <?= $currentPage === 'shop' ? 'class="nav-active"' : '' ?>>Shop</a></li>
+            <li><a href="index.php#category" <?= $currentPage === 'category' ? 'class="nav-active"' : '' ?>>Collections</a></li>
+            <li><a href="index.php#blogs" <?= $currentPage === 'blogs' ? 'class="nav-active"' : '' ?>>Blogs</a></li>
+            <li><a href="page.php?slug=about-us" <?= $currentPage === 'about-us' ? 'class="nav-active"' : '' ?>>About Us</a></li>
+            <li><a href="#" id="close-menu" aria-label="Close menu"><i class="fas fa-times" aria-hidden="true"></i> Close</a></li>
         </ul>
         <div class="nav-right">
-            <a href="#"><i class="ri-search-line"></i></a>
-            <a href="cart.php" class="cart-icon-link" title="View Cart">
-                <i class="ri-shopping-cart-2-line"></i>
-                <?php if ($cartCount > 0): ?>
-                <span class="cart-badge" id="cart-badge"><?= $cartCount ?></span>
-                <?php else: ?>
-                <span class="cart-badge" id="cart-badge" style="display:none">0</span>
-                <?php endif; ?>
+            <div class="search-wrap" id="search-wrap">
+                <form action="search.php" method="GET" class="search-form" role="search" id="search-form">
+                    <label for="search-input" class="sr-only">Search products</label>
+                    <input type="search" name="q" id="search-input" class="search-input"
+                           placeholder="Search products..." autocomplete="off"
+                           value="<?= isset($_GET['q']) ? e($_GET['q']) : '' ?>">
+                    <button type="submit" class="search-submit" aria-label="Submit search">
+                        <i class="ri-search-line" aria-hidden="true"></i>
+                    </button>
+                </form>
+                <div class="search-suggestions" id="search-suggestions"></div>
+            </div>
+            <button class="nav-icon-btn" id="search-toggle" aria-label="Toggle search" aria-expanded="false">
+                <i class="ri-search-line" aria-hidden="true"></i>
+            </button>
+            <a href="cart.php" class="cart-icon-link" title="View Cart" aria-label="Shopping cart">
+                <i class="ri-shopping-cart-2-line" aria-hidden="true"></i>
+                <span class="cart-badge" id="cart-badge" <?= $cartCount === 0 ? 'style="display:none"' : '' ?>><?= $cartCount ?></span>
             </a>
-            <a href="#"><i class="ri-user-line"></i></a>
-            <div class="bx bx-menu" id="menu-icon"><i class="fas fa-bars"></i></div>
-        </div>
-        <div class="popup-view" id="about-view">
-            <div class="about-card">
-                <a href="#" class="close-btn"><i class="ri-close-circle-fill"></i></a>
-                <div class="about-img">
-                    <img src="images/about.png">
-                </div>
-                <div class="about-content">
-                    <div>
-                        <h3 class="h3">About Us<br><span>EcoCommerce</span></h3>
-                        <p>Welcome to EcoCommerce, where sustainability meets convenience in the world of online shopping. Founded as an initiative as part of our course requirements in Web Technologies, our mission is to provide a platform that empowers consumers to make eco-conscious choices without compromising on quality or convenience.</p>
-                        <p>As champions of sustainability, we're driven by the belief that every purchase should be a positive force for our planet. That's why we've curated a collection of eco-friendly products, sourced responsibly and crafted with care.</p>
-                        <p>Join us in shaping a greener future, one mindful purchase at a time!</p>
-                    </div>
-                </div>
+            <a href="profile.php" title="My Profile" aria-label="My profile" <?= $currentPage === 'profile' ? 'class="nav-active"' : '' ?>>
+                <i class="ri-user-line" aria-hidden="true"></i>
+            </a>
+            <div class="bx bx-menu" id="menu-icon" role="button" aria-label="Open menu" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
             </div>
         </div>
     </header>
