@@ -17,38 +17,38 @@
                         </li>
                     </ul>
                     <ul class="social-list">
-                        <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
-                        <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
-                        <li><a href="#" class="social-link"><ion-icon name="logo-pinterest"></ion-icon></a></li>
-                        <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                        <li><a href="javascript:void(0)" class="social-link" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                        <li><a href="javascript:void(0)" class="social-link" aria-label="Twitter"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                        <li><a href="javascript:void(0)" class="social-link" aria-label="Pinterest"><ion-icon name="logo-pinterest"></ion-icon></a></li>
+                        <li><a href="javascript:void(0)" class="social-link" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a></li>
                     </ul>
                 </div>
                 <ul class="footer-list">
                     <li><p class="footer-list-title">Corporate</p></li>
-                    <li><a href="#" class="footer-link">Careers</a></li>
-                    <li><a href="#" class="footer-link">About Us</a></li>
-                    <li><a href="#" class="footer-link">Contact Us</a></li>
-                    <li><a href="#" class="footer-link">FAQs</a></li>
-                    <li><a href="#" class="footer-link">Vendors</a></li>
-                    <li><a href="#" class="footer-link">Affiliate Program</a></li>
+                    <li><a href="page.php?slug=careers" class="footer-link">Careers</a></li>
+                    <li><a href="page.php?slug=about-us" class="footer-link">About Us</a></li>
+                    <li><a href="page.php?slug=contact-us" class="footer-link">Contact Us</a></li>
+                    <li><a href="page.php?slug=faqs" class="footer-link">FAQs</a></li>
+                    <li><a href="page.php?slug=vendors" class="footer-link">Vendors</a></li>
+                    <li><a href="page.php?slug=affiliate-program" class="footer-link">Affiliate Program</a></li>
                 </ul>
                 <ul class="footer-list">
                     <li><p class="footer-list-title">Information</p></li>
-                    <li><a href="#" class="footer-link">Online Store</a></li>
-                    <li><a href="#" class="footer-link">Privacy Policy</a></li>
-                    <li><a href="#" class="footer-link">Refund Policy</a></li>
-                    <li><a href="#" class="footer-link">Shipping Policy</a></li>
-                    <li><a href="#" class="footer-link">Terms of Service</a></li>
-                    <li><a href="#" class="footer-link">Track Order</a></li>
+                    <li><a href="page.php?slug=online-store" class="footer-link">Online Store</a></li>
+                    <li><a href="page.php?slug=privacy-policy" class="footer-link">Privacy Policy</a></li>
+                    <li><a href="page.php?slug=refund-policy" class="footer-link">Refund Policy</a></li>
+                    <li><a href="page.php?slug=shipping-policy" class="footer-link">Shipping Policy</a></li>
+                    <li><a href="page.php?slug=terms-of-service" class="footer-link">Terms of Service</a></li>
+                    <li><a href="page.php?slug=track-order" class="footer-link">Track Order</a></li>
                 </ul>
                 <ul class="footer-list">
                     <li><p class="footer-list-title">Services</p></li>
-                    <li><a href="#" class="footer-link">Eco Product Guides</a></li>
-                    <li><a href="#" class="footer-link">Sustainable Workshops</a></li>
-                    <li><a href="#" class="footer-link">Green Home Consultations</a></li>
-                    <li><a href="#" class="footer-link">Zero-Waste Coaching</a></li>
-                    <li><a href="#" class="footer-link">Ethical Fashion Consults</a></li>
-                    <li><a href="#" class="footer-link">Resource Center</a></li>
+                    <li><a href="page.php?slug=eco-product-guides" class="footer-link">Eco Product Guides</a></li>
+                    <li><a href="page.php?slug=sustainable-workshops" class="footer-link">Sustainable Workshops</a></li>
+                    <li><a href="page.php?slug=green-home-consultations" class="footer-link">Green Home Consultations</a></li>
+                    <li><a href="page.php?slug=zero-waste-coaching" class="footer-link">Zero-Waste Coaching</a></li>
+                    <li><a href="page.php?slug=ethical-fashion-consults" class="footer-link">Ethical Fashion Consults</a></li>
+                    <li><a href="page.php?slug=resource-center" class="footer-link">Resource Center</a></li>
                 </ul>
             </div>
         </div>
@@ -63,5 +63,12 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/search.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <?php if (!empty($extraJs)): ?>
+    <?php foreach ($extraJs as $js): ?>
+    <script src="<?= e($js) ?>"></script>
+    <?php endforeach; ?>
+    <?php endif; ?>
 </body>
 </html>
