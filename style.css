@@ -1325,3 +1325,688 @@ header.scrolled {
       padding-block-start: 40px
   }
 }
+
+/* ================================================================
+   BATCH 2 — Section Modernization
+   Applied on top of Batch 1 design tokens.
+================================================================ */
+
+/* ── 2.2 Category Cards ── */
+.category-card .card-banner {
+  border-radius: var(--radius-md);
+  overflow: hidden
+}
+
+.category-card .img-cover {
+  transition: transform var(--transition-slow)
+}
+
+.category-card:is(:hover, :focus-within) .img-cover {
+  transform: scale(1.04)   /* refined from 1.08 */
+}
+
+.category-card .card-title {
+  display: block;
+  margin-block-start: var(--space-3);
+  text-align: center;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-600);
+  color: var(--text-primary);
+  transition: color var(--transition-normal)
+}
+
+.category-card .card-title:is(:hover, :focus) {
+  color: var(--eco-primary)
+}
+
+/* ── 2.3 Promotional / Blog Cards ── */
+.blog-card {
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-5);
+  display: grid;
+  align-content: end;
+  min-height: 280px;
+  background-color: var(--surface-secondary);
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal)
+}
+
+.blog-card:is(:hover, :focus-within) {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md)
+}
+
+.blog-card .card-subtitle {
+  font-size: var(--fs-7);
+  font-family: var(--ff-inter);
+  font-weight: var(--fw-600);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--eco-accent);
+  margin-block-end: var(--space-2)
+}
+
+.blog-card .card-title {
+  color: var(--text-inverse);
+  font-size: var(--fs-3);
+  font-weight: var(--fw-700);
+  margin-block: 0 var(--space-4);
+  line-height: 1.2
+}
+
+.blog-card .btn {
+  background-color: var(--eco-primary);
+  color: var(--text-inverse);
+  font-size: var(--fs-7);
+  padding: 10px 24px
+}
+
+.blog-card .btn:is(:hover, :focus) {
+  background-color: var(--eco-primary-dark);
+  transform: translateY(-2px)
+}
+
+/* ── 2.4 Product Cards ── */
+.product-card {
+  background: var(--surface-primary);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-align: center;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal)
+}
+
+.product-card:is(:hover, :focus-within) {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: hsl(122, 20%, 78%)
+}
+
+.product-card .card-banner {
+  border-radius: 0;
+  border-bottom: 1.5px solid var(--border-light);
+  margin-block-end: 0;
+  background-color: var(--surface-warm)
+}
+
+/* ── 2.5 Normalize product images ── */
+.product-card .img-holder {
+  aspect-ratio: 1 / 1;
+  background-color: var(--surface-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3)
+}
+
+.product-card .img-holder .img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: contain   /* contain: narrow/wide/tall all balanced */
+}
+
+.product-card .card-content {
+  padding: var(--space-4) var(--space-3) var(--space-4)
+}
+
+.product-card .wrapper {
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--text-muted);
+  font-size: var(--fs-7);
+  margin-block-end: var(--space-2)
+}
+
+.product-card .rating-wrapper {
+  color: var(--eco-accent);
+  gap: 2px
+}
+
+.product-card .h3 {
+  --fs-3: 1.55rem;
+  margin-block: 0 var(--space-2);
+  font-weight: var(--fw-600)
+}
+
+.product-card .card-title {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  display: inline;
+  color: var(--text-primary);
+  transition: color var(--transition-fast)
+}
+
+.product-card .card-title:is(:hover, :focus) {
+  color: var(--eco-primary)
+}
+
+.product-card .card-price {
+  display: block;
+  color: var(--eco-primary);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-700)
+}
+
+/* Card action (quick-add) button */
+.product-card .card-action-btn {
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  background-color: var(--surface-primary);
+  border: 1.5px solid var(--border-light);
+  padding: 10px;
+  border-radius: var(--radius-pill);
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+  opacity: 0
+}
+
+.product-card .card-action-btn:is(:hover, :focus) {
+  background-color: var(--eco-primary);
+  border-color: var(--eco-primary);
+  color: var(--text-inverse)
+}
+
+.product-card:is(:hover, :focus-within) .card-action-btn {
+  opacity: 1
+}
+
+/* Filter reset link */
+.section-filter-reset {
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: var(--space-5)
+}
+
+.section-filter-reset a {
+  color: var(--eco-primary);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  text-decoration: underline;
+  text-underline-offset: 3px
+}
+
+/* Empty product state */
+.product-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-7) var(--space-4);
+  color: var(--text-muted);
+  font-size: var(--fs-5)
+}
+
+/* ── 2.6 Global Quick View Modal ── */
+.popup-view {
+  z-index: 200;
+  background: hsla(0, 0%, 0%, 0.55);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal)
+}
+
+.popup-view.active {
+  opacity: 1;
+  visibility: visible
+}
+
+.popup-card {
+  position: relative;
+  display: flex;
+  width: min(860px, calc(100vw - var(--space-6)));
+  max-height: 90vh;
+  background-color: var(--surface-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg)
+}
+
+.popup-card .close-btn {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 3;
+  font-size: 2.4rem;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  transition: color var(--transition-fast)
+}
+
+.popup-card .close-btn:hover {
+  color: var(--text-primary)
+}
+
+.popup-card .product-img {
+  background: var(--surface-warm);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  flex-shrink: 0;
+  padding: var(--space-5);
+  overflow: hidden
+}
+
+.popup-card .product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: 380px
+}
+
+.popup-card .product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-6)
+}
+
+.popup-card .product-info h3 {
+  font-size: var(--fs-3);
+  font-weight: var(--fw-700);
+  color: var(--text-primary);
+  margin-block-end: var(--space-2);
+  line-height: 1.2
+}
+
+.qv-category {
+  display: block;
+  font-size: var(--fs-7);
+  font-weight: var(--fw-600);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-block-end: var(--space-3)
+}
+
+.popup-card .product-info p {
+  font-size: var(--fs-6);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-block-end: var(--space-4)
+}
+
+.popup-card .product-info .price {
+  display: block;
+  font-size: var(--fs-4);
+  font-weight: var(--fw-700);
+  color: var(--eco-primary);
+  margin-block-end: var(--space-5)
+}
+
+.qv-actions {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  flex-wrap: wrap
+}
+
+.popup-card .product-info .add-cart-btn {
+  background: var(--eco-primary);
+  color: var(--text-inverse);
+  font-family: var(--ff-inter);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-600);
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--eco-primary);
+  cursor: pointer;
+  transition: background-color var(--transition-normal), color var(--transition-normal), transform var(--transition-fast)
+}
+
+.popup-card .product-info .add-cart-btn:is(:hover, :focus) {
+  background-color: var(--eco-primary-dark);
+  border-color: var(--eco-primary-dark);
+  transform: translateY(-2px)
+}
+
+.popup-card .product-info .add-to-wishlist {
+  background: none;
+  border: none;
+  font-family: var(--ff-inter);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  color: var(--eco-primary);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast)
+}
+
+.popup-card .product-info .add-to-wishlist:hover {
+  color: var(--eco-primary-dark)
+}
+
+/* ── 2.7 Service Cards ── */
+.service-card {
+  text-align: center;
+  padding: var(--space-5) var(--space-4);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-normal)
+}
+
+.service-card:is(:hover, :focus-within) {
+  background-color: var(--eco-primary-soft)
+}
+
+.service-card .card-icon {
+  max-width: max-content;
+  margin-inline: auto;
+  margin-block-end: var(--space-4)
+}
+
+.service-card .card-icon img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain
+}
+
+.service-card .card-title {
+  font-size: var(--fs-5);
+  font-weight: var(--fw-700);
+  color: var(--text-primary);
+  margin-block-end: var(--space-2)
+}
+
+.service-card .card-text {
+  color: var(--text-muted);
+  font-size: var(--fs-6);
+  line-height: 1.65
+}
+
+/* ── 2.8 Sustainability Banner (CTA) ── */
+.cta {
+  background-position: center;
+  background-size: cover
+}
+
+.cta-content {
+  padding-block: var(--space-8)
+}
+
+.cta-content .img {
+  margin-block-end: var(--space-4)
+}
+
+.cta .section-title {
+  text-align: left;
+  color: var(--text-inverse);
+  font-size: clamp(2.4rem, 3.5vw, 4rem);
+  margin-block: var(--space-3) var(--space-4)
+}
+
+.cta .section-text {
+  color: hsla(0, 0%, 100%, 0.85);
+  font-size: var(--fs-6);
+  line-height: 1.75;
+  max-width: 52ch;
+  margin-block-end: var(--space-6)
+}
+
+.cta .btn {
+  background-color: var(--eco-accent);
+  color: var(--text-primary);
+  font-weight: var(--fw-700);
+  padding: 13px 32px
+}
+
+.cta .btn:is(:hover, :focus) {
+  background-color: hsl(34, 90%, 44%);
+  transform: translateY(-2px)
+}
+
+/* ── 2.9 Customer Reviews ── */
+.testimonials {
+  background: var(--surface-secondary);
+  color: var(--text-primary)
+}
+
+.testimonials-border {
+  width: 56px;
+  height: 4px;
+  background: var(--eco-primary);
+  border-radius: var(--radius-pill);
+  margin: var(--space-3) auto var(--space-7)
+}
+
+.testimonials-grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))
+}
+
+.testimonial {
+  background: var(--surface-primary);
+  padding: var(--space-6) var(--space-5);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-light);
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal)
+}
+
+.testimonial:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px)
+}
+
+.testimonial-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto var(--space-3);
+  border: 3px solid var(--eco-primary-soft)
+}
+
+.testimonial-name {
+  font-family: var(--ff-inter);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-700);
+  color: var(--text-primary);
+  text-align: center;
+  margin-block-end: var(--space-2)
+}
+
+.testimonial .wrapper {
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 1.8rem;
+  margin-block-end: var(--space-3)
+}
+
+.testimonial .rating-wrapper {
+  color: var(--eco-accent);
+  gap: 2px
+}
+
+.testimonial p {
+  font-size: var(--fs-6);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  text-align: center
+}
+
+/* Remove old testimonials styles that conflict */
+.row { display: block }
+.col  { flex: unset; max-width: unset; padding: 0 }
+.inner { padding: 0; overflow: visible }
+.name { display: none }   /* replaced by .testimonial-name */
+
+/* ── 2.10 Popular Brands ── */
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center
+}
+
+.brands-grid .brand-card {
+  max-width: 140px;
+  margin-inline: auto;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1.5px solid var(--border-light);
+  padding: var(--space-3);
+  background: var(--surface-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-fast), transform var(--transition-fast), opacity var(--transition-fast)
+}
+
+.brands-grid .brand-card:is(:hover, :focus-within) {
+  border-color: var(--eco-primary);
+  transform: scale(1.04);
+  opacity: 0.88
+}
+
+.brands-grid .brand-card .img-cover {
+  object-fit: contain;
+  max-width: 100px;
+  max-height: 100px;
+  width: auto;
+  height: auto
+}
+
+/* ── 2.11 Footer ── */
+.footer {
+  background-color: hsl(145, 22%, 12%);   /* deep green-charcoal */
+  color: hsl(120, 6%, 68%)
+}
+
+.footer-top {
+  padding-block-start: var(--space-8);
+  border-block-end: 1px solid hsl(145, 18%, 20%)
+}
+
+.footer-top .container {
+  display: grid;
+  gap: var(--space-6)
+}
+
+.footer-text {
+  font-size: var(--fs-6);
+  line-height: 1.7;
+  margin-block-end: var(--space-5)
+}
+
+.footer-text .link {
+  color: var(--eco-accent)
+}
+
+.logo-1 img {
+  height: 46px;
+  width: auto;
+  margin-block-end: var(--space-4)
+}
+
+.contact-item {
+  margin-block-end: var(--space-3);
+  color: var(--text-inverse);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3)
+}
+
+.contact-item ion-icon {
+  flex-shrink: 0;
+  font-size: 2rem;
+  color: var(--eco-accent)
+}
+
+.social-list {
+  display: flex;
+  gap: var(--space-2);
+  margin-block-start: var(--space-5)
+}
+
+.social-link {
+  background-color: hsl(145, 18%, 20%);
+  color: hsl(120, 6%, 68%);
+  padding: 10px;
+  border-radius: var(--radius-pill);
+  font-size: 1.8rem;
+  transition: background-color var(--transition-fast), color var(--transition-fast)
+}
+
+.social-link:is(:hover, :focus) {
+  background-color: var(--eco-primary);
+  color: var(--text-inverse)
+}
+
+.footer-list-title {
+  color: var(--text-inverse);
+  font-family: var(--ff-inter);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-700);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding-block: var(--space-2);
+  margin-block-end: var(--space-3)
+}
+
+.footer-link {
+  display: block;
+  font-size: var(--fs-6);
+  padding-block: 5px;
+  color: hsl(120, 6%, 60%);
+  line-height: 1.6;
+  transition: color var(--transition-fast)
+}
+
+.footer-link:is(:hover, :focus) {
+  color: var(--eco-accent)
+}
+
+.footer-bottom {
+  padding-block: var(--space-5)
+}
+
+.copyright {
+  font-size: var(--fs-7);
+  color: hsl(120, 6%, 48%);
+  margin-block-end: var(--space-2)
+}
+
+.copyright-link {
+  display: inline-block;
+  color: var(--eco-accent)
+}
+
+/* Responsive: brands grid */
+@media (max-width: 767px) {
+  .brands-grid {
+    grid-template-columns: repeat(3, 1fr)
+  }
+}
+
+@media (max-width: 480px) {
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr)
+  }
+
+  .popup-card {
+    flex-direction: column
+  }
+
+  .popup-card .product-img {
+    width: 100%;
+    max-height: 220px
+  }
+}
