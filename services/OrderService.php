@@ -21,16 +21,22 @@ class OrderService {
         }
 
         $total = $this->cart->getTotal();
-        $sid = session_id();
+        $sid   = session_id();
+
+        // Snapshot customer profile at time of purchase (may be empty if not filled in)
+        $profileStmt = $this->db->prepare('SELECT name, email, phone FROM customer_profiles WHERE session_id = ?');
+        $profileStmt->execute([$sid]);
+        $profile = $profileStmt->fetch() ?: ['name' => '', 'email' => '', 'phone' => ''];
 
         try {
             $this->db->beginTransaction();
 
-            // Create order
+            // Create order with customer snapshot
             $stmt = $this->db->prepare(
-                'INSERT INTO orders (session_id, total_amount, status) VALUES (?, ?, ?)'
+                'INSERT INTO orders (session_id, total_amount, status, customer_name, customer_email, customer_phone)
+                 VALUES (?, ?, ?, ?, ?, ?)'
             );
-            $stmt->execute([$sid, $total, 'placed']);
+            $stmt->execute([$sid, $total, 'placed', $profile['name'], $profile['email'], $profile['phone']]);
             $orderId = (int) $this->db->lastInsertId();
 
             // Copy cart items to order_items (price locked at time of order)
