@@ -10,12 +10,12 @@ class ProductRepository {
     }
 
     public function getAll(): array {
-        $stmt = $this->db->query('SELECT * FROM products ORDER BY id ASC');
+        $stmt = $this->db->query('SELECT * FROM products WHERE is_active = 1 ORDER BY id ASC');
         return $stmt->fetchAll();
     }
 
     public function getById(int $id): array|false {
-        $stmt = $this->db->prepare('SELECT * FROM products WHERE id = ?');
+        $stmt = $this->db->prepare('SELECT * FROM products WHERE id = ? AND is_active = 1');
         $stmt->execute([$id]);
         return $stmt->fetch();
     }
@@ -24,7 +24,8 @@ class ProductRepository {
         $q    = '%' . $query . '%';
         $stmt = $this->db->prepare(
             'SELECT * FROM products
-             WHERE name LIKE ? OR category LIKE ? OR description LIKE ?
+             WHERE is_active = 1
+               AND (name LIKE ? OR category LIKE ? OR description LIKE ?)
              ORDER BY name ASC'
         );
         $stmt->execute([$q, $q, $q]);
@@ -32,7 +33,7 @@ class ProductRepository {
     }
 
     public function getByCategory(string $category): array {
-        $stmt = $this->db->prepare('SELECT * FROM products WHERE category = ? ORDER BY id ASC');
+        $stmt = $this->db->prepare('SELECT * FROM products WHERE category = ? AND is_active = 1 ORDER BY id ASC');
         $stmt->execute([$category]);
         return $stmt->fetchAll();
     }
