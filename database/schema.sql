@@ -16,8 +16,13 @@ CREATE TABLE IF NOT EXISTS products (
     rating DECIMAL(2,1) NOT NULL DEFAULT 0.0,
     review_count INT UNSIGNED NOT NULL DEFAULT 0,
     stock INT UNSIGNED NOT NULL DEFAULT 100,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Index for storefront category filtering/searching
+CREATE INDEX IF NOT EXISTS idx_products_category ON products(category);
 
 -- Cart items table (session-based, no user accounts)
 CREATE TABLE IF NOT EXISTS cart_items (
@@ -37,8 +42,16 @@ CREATE TABLE IF NOT EXISTS orders (
     session_id VARCHAR(128) NOT NULL,
     total_amount DECIMAL(10,2) NOT NULL,
     status ENUM('placed','processing','shipped','delivered','cancelled') NOT NULL DEFAULT 'placed',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -- Customer snapshot at time of purchase
+    customer_name VARCHAR(100) NOT NULL DEFAULT '',
+    customer_email VARCHAR(150) NOT NULL DEFAULT '',
+    customer_phone VARCHAR(30) NOT NULL DEFAULT '',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Index for loading orders by session on profile page
+CREATE INDEX IF NOT EXISTS idx_orders_session_id ON orders(session_id);
 
 -- Order items table
 CREATE TABLE IF NOT EXISTS order_items (
@@ -60,5 +73,15 @@ CREATE TABLE IF NOT EXISTS customer_profiles (
     phone VARCHAR(30) NOT NULL DEFAULT '',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Persistent wishlist items table (mirrors cart_items structure)
+CREATE TABLE IF NOT EXISTS wishlist_items (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    session_id VARCHAR(128) NOT NULL,
+    product_id INT UNSIGNED NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+    UNIQUE KEY unique_wishlist_session_product (session_id, product_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
