@@ -37,41 +37,75 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- Product popup modals ---
-    const popupBtns = document.querySelectorAll('.popup-btn');
-    const closeBtns = document.querySelectorAll('.close-btn');
-    const aboutBtn  = document.getElementById('about');
+    // --- Global Quick View modal ---
+    const globalQV       = document.getElementById('global-quick-view');
+    const qvClose        = document.getElementById('qv-close');
+    const qvImg          = document.getElementById('qv-img');
+    const qvTitle        = document.getElementById('qv-title');
+    const qvCategory     = document.getElementById('qv-category');
+    const qvDesc         = document.getElementById('qv-desc');
+    const qvPrice        = document.getElementById('qv-price');
+    const qvCartBtn      = document.getElementById('qv-cart-btn');
+    const qvWishlistBtn  = document.getElementById('qv-wishlist-btn');
 
-    function openPopup(popup) { popup && popup.classList.add('active'); }
-    function closePopup(popup) { popup && popup.classList.remove('active'); }
+    function openGlobalQV(card) {
+        if (!globalQV || !card) return;
+        const d = card.dataset;
+        qvImg.src          = d.productImage  || '';
+        qvImg.alt          = d.productName   || '';
+        qvTitle.textContent     = d.productName     || '';
+        qvCategory.textContent  = d.productCategory || '';
+        qvDesc.textContent      = d.productDesc     || '';
+        qvPrice.textContent     = d.productPrice    || '';
+        qvCartBtn.dataset.productId    = d.productId || '';
+        qvWishlistBtn.dataset.productId = d.productId || '';
+        globalQV.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
 
-    popupBtns.forEach(function (btn) {
+    function closeGlobalQV() {
+        if (!globalQV) return;
+        globalQV.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Open on .popup-btn click
+    document.querySelectorAll('.popup-btn').forEach(function (btn) {
         btn.addEventListener('click', function (e) {
             e.preventDefault();
-            const popup = btn.closest('li').querySelector('.popup-view');
-            openPopup(popup);
+            const card = btn.closest('.product-card');
+            openGlobalQV(card);
         });
     });
 
-    closeBtns.forEach(function (btn) {
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            const popup = btn.closest('.popup-view');
-            closePopup(popup);
-        });
-    });
+    // Close button
+    if (qvClose) qvClose.addEventListener('click', closeGlobalQV);
 
-    if (aboutBtn) {
-        aboutBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            openPopup(document.getElementById('about-view'));
+    // Click-outside to close
+    if (globalQV) {
+        globalQV.addEventListener('click', function (e) {
+            if (e.target === globalQV) closeGlobalQV();
         });
     }
 
-    // Click-outside to close any popup
-    window.addEventListener('click', function (e) {
-        document.querySelectorAll('.popup-view.active').forEach(function (popup) {
-            if (e.target === popup) closePopup(popup);
+    // Escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeGlobalQV();
+    });
+
+    // About modal (preserved)
+    const aboutBtn  = document.getElementById('about');
+    if (aboutBtn) {
+        aboutBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const av = document.getElementById('about-view');
+            if (av) av.classList.add('active');
+        });
+    }
+    document.querySelectorAll('.about-view .close-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const av = btn.closest('.about-view');
+            if (av) av.classList.remove('active');
         });
     });
 
@@ -128,16 +162,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // "Add to Cart" inside the popup modal
-    document.querySelectorAll('.popup-add-to-cart').forEach(function (link) {
-        link.addEventListener('click', function (e) {
+    // "Add to Cart" inside the global Quick View modal
+    if (qvCartBtn) {
+        qvCartBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            addToCart(link.dataset.productId);
-            // Close the popup after adding
-            const popup = link.closest('.popup-view');
-            closePopup(popup);
+            addToCart(qvCartBtn.dataset.productId);
+            closeGlobalQV();
         });
-    });
+    }
 
     // --- AJAX Add to Wishlist ---
     function updateWishlistBadge(count) {
@@ -165,12 +197,20 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(function () { showToast('Network error. Please try again.', true); });
     }
 
-    document.querySelectorAll('.add-to-wishlist').forEach(function (btn) {
+    // Wishlist: card-level buttons (outside modal)
+    document.querySelectorAll('.add-to-wishlist:not(#qv-wishlist-btn)').forEach(function (btn) {
         btn.addEventListener('click', function (e) {
             e.preventDefault();
             addToWishlist(btn.dataset.productId);
-            const popup = btn.closest('.popup-view');
-            if (popup) closePopup(popup);
         });
     });
+
+    // Wishlist: inside global Quick View modal
+    if (qvWishlistBtn) {
+        qvWishlistBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            addToWishlist(qvWishlistBtn.dataset.productId);
+            closeGlobalQV();
+        });
+    }
 });
