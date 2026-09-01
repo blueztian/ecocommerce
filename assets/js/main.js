@@ -3,6 +3,16 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    // --- Header scroll state ---
+    const header = document.querySelector('header');
+    if (header) {
+        const onScroll = function () {
+            header.classList.toggle('scrolled', window.scrollY > 20);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // run once on load
+    }
+
     // --- Mobile menu ---
     const menuIcon    = document.getElementById('menu-icon');
     const closeMenu   = document.getElementById('close-menu');

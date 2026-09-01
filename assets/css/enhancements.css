@@ -16,22 +16,81 @@
     border: 0;
 }
 
-.nav-active {
-    color: var(--olive-classic) !important;
+/* ---- Dropdown navigation ---- */
+.nav-has-dropdown {
+    position: relative;
 }
 
+.nav-chevron {
+    display: inline-block !important;
+    font-size: 1.4rem;
+    vertical-align: middle;
+    transition: transform var(--transition-fast);
+    margin-left: 2px;
+}
+
+.nav-has-dropdown:hover .nav-chevron,
+.nav-has-dropdown:focus-within .nav-chevron {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown {
+    display: block;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 200px;
+    background: var(--surface-primary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    list-style: none;
+    padding: var(--space-2) 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+    z-index: 200;
+}
+
+.nav-has-dropdown:hover .nav-dropdown,
+.nav-has-dropdown:focus-within .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown li a {
+    display: block;
+    padding: 9px var(--space-4);
+    font-family: var(--ff-inter);
+    font-size: 1.4rem;
+    font-weight: var(--fw-400);
+    color: var(--text-secondary);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.nav-dropdown li a::after { display: none; } /* no underline in dropdown */
+
+.nav-dropdown li a:hover {
+    background-color: var(--eco-primary-soft);
+    color: var(--eco-primary);
+}
+
+.nav-active {
+    color: var(--eco-primary) !important;
+    font-weight: var(--fw-600) !important;
+}
+
+/* .nav-icon-btn sizing now handled by .nav-right a rule in style.css */
 .nav-icon-btn {
     background: none;
     border: none;
-    font-size: 22px;
-    color: var(--eerie-black);
     cursor: pointer;
     padding: 0;
-    margin: 0 20px;
-    display: inline-block;
-    transition: all .6s;
+    margin: 0;
+    /* appearance tokens handled in style.css */
 }
-.nav-icon-btn:hover { transform: translateY(-5px) scale(1.1); }
 
 /* ---- Search in Navbar ---- */
 .search-wrap {
@@ -47,42 +106,48 @@
 .search-form {
     display: flex;
     align-items: center;
-    border: 1px solid var(--platinum);
-    border-radius: 50px;
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-pill);
     overflow: hidden;
-    background: #fff;
+    background: var(--surface-primary);
+    transition: border-color var(--transition-fast);
+}
+
+.search-form:focus-within {
+    border-color: var(--eco-primary);
 }
 
 .search-input {
     border: none;
     outline: none;
     padding: 8px 16px;
-    font-family: var(--ff-nunito_sans);
+    font-family: var(--ff-inter);
     font-size: 1.4rem;
     width: 220px;
     background: transparent;
+    color: var(--text-primary);
 }
 
 .search-submit {
-    background: var(--olive-classic);
+    background: var(--eco-primary);
     border: none;
     padding: 8px 14px;
-    color: #fff;
+    color: var(--text-inverse);
     cursor: pointer;
     font-size: 16px;
-    transition: var(--transition-1);
+    transition: background-color var(--transition-fast);
 }
-.search-submit:hover { background: var(--eerie-black); }
+.search-submit:hover { background: var(--eco-primary-dark); }
 
 .search-suggestions {
     position: absolute;
     top: calc(100% + 8px);
     left: 0;
     right: 0;
-    background: #fff;
-    border: 1px solid var(--platinum);
-    border-radius: var(--radius-10);
-    box-shadow: var(--shadow-1);
+    background: var(--surface-primary);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
     z-index: 100;
     display: none;
 }
@@ -92,15 +157,15 @@
 .suggestion-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--space-2);
     padding: 10px 14px;
     text-decoration: none;
-    color: var(--eerie-black);
-    transition: var(--transition-1);
-    border-bottom: 1px solid var(--platinum);
+    color: var(--text-primary);
+    transition: background-color var(--transition-fast);
+    border-bottom: 1px solid var(--border-light);
 }
 .suggestion-item:last-child { border-bottom: none; }
-.suggestion-item:hover { background: #f5f5f5; }
+.suggestion-item:hover { background: var(--eco-primary-soft); }
 
 .suggestion-item img {
     width: 40px;
@@ -436,7 +501,8 @@
     .grid-list .reveal-scale:nth-child(n+6) { transition-delay: 0.38s; }
 }
 
-/* ---- Active nav highlight ---- */
+/* ---- Active nav highlight (defer to style.css rule) ---- */
 header .navlist a.nav-active {
-    color: var(--olive-classic);
+    color: var(--eco-primary);
+    font-weight: var(--fw-600);
 }

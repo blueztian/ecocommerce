@@ -8,8 +8,34 @@ $currentPage = $currentPage ?? '';
         </a>
         <ul class="navlist" role="navigation" aria-label="Main navigation">
             <li><a href="index.php#home" <?= $currentPage === 'home' ? 'class="nav-active"' : '' ?>>Home</a></li>
-            <li><a href="index.php#shop" <?= $currentPage === 'shop' ? 'class="nav-active"' : '' ?>>Shop</a></li>
-            <li><a href="index.php#category" <?= $currentPage === 'category' ? 'class="nav-active"' : '' ?>>Collections</a></li>
+
+            <!-- Shop dropdown -->
+            <li class="nav-has-dropdown">
+                <a href="index.php#shop" <?= $currentPage === 'shop' ? 'class="nav-active"' : '' ?> aria-haspopup="true" aria-expanded="false">
+                    Shop <i class="ri-arrow-down-s-line nav-chevron" aria-hidden="true"></i>
+                </a>
+                <ul class="nav-dropdown" role="menu">
+                    <li><a href="index.php#shop" role="menuitem">All Products</a></li>
+                    <li><a href="index.php?category=EcoHome+Essentials" role="menuitem">EcoHome Essentials</a></li>
+                    <li><a href="index.php?category=EcoFashion+Finds" role="menuitem">EcoFashion Finds</a></li>
+                    <li><a href="index.php?category=EcoBeauty+Basics" role="menuitem">EcoBeauty Basics</a></li>
+                    <li><a href="index.php?category=EcoGourmet+Goods" role="menuitem">EcoGourmet Goods</a></li>
+                </ul>
+            </li>
+
+            <!-- Collections dropdown -->
+            <li class="nav-has-dropdown">
+                <a href="index.php#category" <?= $currentPage === 'category' ? 'class="nav-active"' : '' ?> aria-haspopup="true" aria-expanded="false">
+                    Collections <i class="ri-arrow-down-s-line nav-chevron" aria-hidden="true"></i>
+                </a>
+                <ul class="nav-dropdown" role="menu">
+                    <li><a href="index.php#shop" role="menuitem">Best Sellers</a></li>
+                    <li><a href="index.php#category" role="menuitem">New Arrivals</a></li>
+                    <li><a href="index.php?category=EcoHome+Essentials" role="menuitem">Plastic-Free</a></li>
+                    <li><a href="index.php?category=EcoGourmet+Goods" role="menuitem">Locally Made</a></li>
+                </ul>
+            </li>
+
             <li><a href="index.php#blogs" <?= $currentPage === 'blogs' ? 'class="nav-active"' : '' ?>>Blogs</a></li>
             <li><a href="page.php?slug=about-us" <?= $currentPage === 'about-us' ? 'class="nav-active"' : '' ?>>About Us</a></li>
             <li><button type="button" id="close-menu" aria-label="Close menu" style="background:none; border:none; color:inherit; font:inherit; cursor:pointer; padding:0;"><i class="fas fa-times" aria-hidden="true"></i> Close</button></li>
@@ -47,3 +73,7 @@ $currentPage = $currentPage ?? '';
             </div>
         </div>
     </header>
+
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
