@@ -997,6 +997,7 @@ header.scrolled {
 }
 
 .product-card .wrapper {
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--space-1);
@@ -1006,6 +1007,7 @@ header.scrolled {
 }
 
 .product-card .rating-wrapper {
+  display: flex;
   color: var(--eco-accent);
   gap: 2px
 }
@@ -1365,6 +1367,7 @@ header.scrolled {
 }
 
 .testimonial .wrapper {
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--space-1);
@@ -1373,6 +1376,7 @@ header.scrolled {
 }
 
 .testimonial .rating-wrapper {
+  display: flex;
   color: var(--eco-accent);
   gap: 2px
 }
