@@ -11,7 +11,7 @@ $currentPage = $currentPage ?? '';
 
             <!-- Shop dropdown -->
             <li class="nav-has-dropdown">
-                <a href="index.php#shop" <?= $currentPage === 'shop' ? 'class="nav-active"' : '' ?> aria-haspopup="true" aria-expanded="false">
+                <a href="index.php#shop" <?= $currentPage === 'shop' ? 'class="nav-active"' : '' ?> aria-haspopup="true" aria-expanded="false" id="shop-dropdown-trigger">
                     Shop <i class="ri-arrow-down-s-line nav-chevron" aria-hidden="true"></i>
                 </a>
                 <ul class="nav-dropdown" role="menu">
@@ -25,7 +25,7 @@ $currentPage = $currentPage ?? '';
 
             <!-- Collections dropdown -->
             <li class="nav-has-dropdown">
-                <a href="index.php#category" <?= $currentPage === 'category' ? 'class="nav-active"' : '' ?> aria-haspopup="true" aria-expanded="false">
+                <a href="index.php#category" <?= $currentPage === 'category' ? 'class="nav-active"' : '' ?> aria-haspopup="true" aria-expanded="false" id="collections-dropdown-trigger">
                     Collections <i class="ri-arrow-down-s-line nav-chevron" aria-hidden="true"></i>
                 </a>
                 <ul class="nav-dropdown" role="menu">
@@ -73,7 +73,3 @@ $currentPage = $currentPage ?? '';
             </div>
         </div>
     </header>
-
-    <!-- Ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
